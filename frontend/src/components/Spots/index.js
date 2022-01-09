@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
 import {getAllSpots} from '../../store/spots'
+import './spots.css'
 
 
 
@@ -14,16 +15,31 @@ useEffect(() => {
 },[])
 
     return (
-        <div>
-            <h1>All Cabins</h1>
-            {allSpots.map(spot => (
-              <div>
-                <h2 key={spot.id}>{spot.title}</h2>
-                <img key={spot.id} src={spot.Images[0].url} />
-                <h3 key={spot.id}>{spot.description}</h3>
-                <h3 key={spot.id}>{spot.costPerNight}</h3>
-              </div>
-            ))}
+        <div className="main-container">
+            <div className="map">
+                <img id='map-image' src='https://photos.smugmug.com/Maps-Vault/State-Park-System-Maps/Oklahoma-State-Park-Maps/i-zChwSH2/0/4a15f55e/L/Beavers_Bend_Broken_Bow_Lake-L.jpg' />
+            </div>
+            <div className="content-container">
+                {allSpots.map(spot => (
+                <div className="spots-container">
+                    <div className="image-container">
+                        <img id='spot-image' key={spot.id} src={spot.Images[0].url} />
+                    </div>
+                    <div className="info">
+                            <h2 key={spot.id}>{spot.title}</h2>
+                            <p key={spot.id}>{spot.description}</p>
+                            <p key={spot.id}>{spot.costPerNight}</p>
+                            <p key={spot.id}>{spot.address}</p>
+                            <p key={spot.id}>{spot.city}</p>
+                            <p key={spot.id}>{spot.state}</p>
+                            <p key={spot.id}>{spot.zipCode}</p>
+                            <p key={spot.id}>{spot.guests}</p>
+                            <p key={spot.id}>{spot.beds}</p>
+                            <p key={spot.id}>{spot.baths}</p>
+                    </div>
+                </div>
+                ))}
+            </div>
         </div>
     )
 }
