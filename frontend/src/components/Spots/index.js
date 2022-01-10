@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Redirect } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import {getAllSpots} from '../../store/spots'
 import './spots.css'
 
@@ -26,16 +26,18 @@ useEffect(() => {
                         <img id='spot-image' key={spot.id} src={spot.Images[0].url} />
                     </div>
                     <div className="info">
+                        <Link to={`/spots/${spot.id}`}>
                             <h2 key={spot.id}>{spot.title}</h2>
-                            <p key={spot.id}>{spot.description}</p>
-                            <p key={spot.id}>{spot.costPerNight}</p>
-                            <p key={spot.id}>{spot.address}</p>
-                            <p key={spot.id}>{spot.city}</p>
-                            <p key={spot.id}>{spot.state}</p>
-                            <p key={spot.id}>{spot.zipCode}</p>
-                            <p key={spot.id}>{spot.guests}</p>
-                            <p key={spot.id}>{spot.beds}</p>
-                            <p key={spot.id}>{spot.baths}</p>
+                        </Link>
+                        <p key={spot.id}>Description: {spot.description}</p>
+                        <p key={spot.id}>Cost{spot.costPerNight}</p>
+                        <p key={spot.id}>{spot.address}</p>
+                        <p key={spot.id}>{spot.city}</p>
+                        <p key={spot.id}>{spot.state}</p>
+                        <p key={spot.id}>{spot.zipCode}</p>
+                        <p key={spot.id}>{spot.guests}</p>
+                        <p key={spot.id}>{spot.beds}</p>
+                        <p key={spot.id}>{spot.baths}</p>
                     </div>
                 </div>
                 ))}

@@ -30,10 +30,26 @@ router.get("/", asyncHandler(async (req, res) => {
             model: Image
         }
     })
-    console.log('with images', spots[0].Images[0].url)
+    // console.log('with images', spots[0].Images[0].url)
     return res.json(spots)
 }))
 
+router.get('/:spotId', asyncHandler(async (req, res) => {
+    const spotId = parseInt(req.params.spotId, 10)
+    const spot = await Spot.findByPk(spotId, {
+        include: [Image, Amenity]
+    })
+    return res.json(spot)
+}))
+
+router.get('/host', asyncHandler(async (req,res) => {
+    return res.send('cabin form')
+}))
+
+router.post('/host', asyncHandler(async (req, res) => {
+    const id = await Spot.create(req.body)
+    return res.redirect('/spots')
+}))
 
 
 

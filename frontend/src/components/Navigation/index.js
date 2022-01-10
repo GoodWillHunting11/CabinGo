@@ -16,19 +16,28 @@ function Navigation({ isLoaded }){
     sessionLinks = (
       <>
         <NavLink to="/login">Log In</NavLink>
-        <NavLink to="/signup">Sign Up</NavLink>
+        <NavLink id='signup' to="/signup">Sign Up</NavLink>
       </>
     );
   }
 
   return (
     <div className='navbar'>
-      <ul>
-        <li>
+      <div className='left-nav'>
+        <div id='home'>
           <NavLink exact to="/">Home</NavLink>
+        </div>
+      </div>
+      <div className='mid-nav'>
+        <div id='host-spot'>
+          <NavLink to ='/spots/host'>Host a Cabin</NavLink>
+        </div>
+      </div>
+      <div className='right-nav'>
+        <div id='signup-login'>
           {isLoaded && sessionLinks}
-        </li>
-      </ul>
+        </div>
+      </div>
     </div>
   );
 }

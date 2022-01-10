@@ -1,4 +1,33 @@
 .navbar {
+    display: flex;
+    justify-content: space-between;
     border-bottom: solid 2px black;
     margin-bottom: 15px;
+    background-color: black;
+    padding-top: 15px;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+#root {
+    background-color: black;
+}
+
+html {
+    background-color: black;
+}
+
+.left-nav {
+    margin-left: 40px;
+}
+
+.right-nav {
+    margin-right: 40px;
+}
+
+#signup {
+    padding-left: 15px;
 }
