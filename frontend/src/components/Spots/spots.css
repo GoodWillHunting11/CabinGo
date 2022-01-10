@@ -7,6 +7,10 @@ html {
     flex-direction: row-reverse;
 }
 
+p {
+    color: white;
+}
+
 .map{
     width: 40%;
 }
@@ -18,7 +22,7 @@ html {
 }
 
 .spots-container {
-    border-bottom: darkslategray 2px solid;
+    border-bottom: gray 2px solid;
     display: flex;
     height: 330px;
     width: 100%;

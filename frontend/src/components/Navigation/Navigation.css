@@ -1,10 +1,11 @@
 .navbar {
     display: flex;
     justify-content: space-between;
-    border-bottom: solid 2px black;
+    border-bottom: gray 2px solid;
     margin-bottom: 15px;
     background-color: black;
     padding-top: 15px;
+    padding-bottom: 15px;
 }
 
 a {

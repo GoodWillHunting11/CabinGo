@@ -1,4 +1,4 @@
-.main-container {
+.home-container {
     display: flex;
     flex-direction: column;
     background-color: black;
@@ -19,7 +19,7 @@ body {
     margin-top: 30px;
 }
 
-#spots-image {
+#spots-imagee {
     border-radius: 20px;
     width: 70%;
 }
