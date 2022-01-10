@@ -3,22 +3,23 @@
     justify-content: space-between;
     border-bottom: gray 2px solid;
     margin-bottom: 15px;
-    background-color: black;
+    background-color: white;
     padding-top: 15px;
     padding-bottom: 15px;
 }
 
 a {
     text-decoration: none;
-    color: white;
+    color: black;
+    font-weight: 600;
 }
 
 #root {
-    background-color: black;
+    background-color: white;
 }
 
 html {
-    background-color: black;
+    background-color: white;
 }
 
 .left-nav {

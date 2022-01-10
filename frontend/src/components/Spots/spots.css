@@ -8,7 +8,8 @@ html {
 }
 
 p {
-    color: white;
+    color: black;
+    font-weight: 400;
 }
 
 .map{
@@ -49,6 +50,11 @@ p {
     padding-left: 25px;
 }
 
+.guest-bed-bath-container {
+    display: flex;
+    gap:10px;
+}
+
 #spot-image {
    width: 100%;
    height: 92%;
@@ -58,4 +64,23 @@ p {
 #map-image {
    width: 100%;
    height: 100%;
+}
+
+#guests {
+    font-size: 15px;
+    font-weight: 500;
+}
+
+#baths {
+    font-size: 15px;
+    font-weight: 500;
+}
+
+#beds {
+    font-size: 15px;
+    font-weight: 500;
+}
+
+#description {
+    padding-bottom: 30px;
 }

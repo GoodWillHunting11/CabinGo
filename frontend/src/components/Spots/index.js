@@ -29,15 +29,19 @@ useEffect(() => {
                         <Link to={`/spots/${spot.id}`}>
                             <h2 key={spot.id}>{spot.title}</h2>
                         </Link>
-                        <p key={spot.id}>Description: {spot.description}</p>
+                        <p id='description' key={spot.id}>Description: {spot.description}</p>
+                        <div className="guest-bed-bath-container">
+                            <label id='guests'> Guests:
+                                <p key={spot.id}>{spot.guests}</p>
+                            </label>
+                            <label id='beds'> Beds:
+                                <p key={spot.id}>{spot.beds}</p>
+                            </label>
+                            <label id='baths'> Baths:
+                                <p key={spot.id}>{spot.baths}</p>
+                            </label>
+                        </div>
                         <p key={spot.id}>Cost{spot.costPerNight}</p>
-                        <p key={spot.id}>{spot.address}</p>
-                        <p key={spot.id}>{spot.city}</p>
-                        <p key={spot.id}>{spot.state}</p>
-                        <p key={spot.id}>{spot.zipCode}</p>
-                        <p key={spot.id}>{spot.guests}</p>
-                        <p key={spot.id}>{spot.beds}</p>
-                        <p key={spot.id}>{spot.baths}</p>
                     </div>
                 </div>
                 ))}
