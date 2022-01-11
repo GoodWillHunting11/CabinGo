@@ -1,67 +1,116 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory } from "react-router-dom";
-import {states} from '../utils'
-import {addSpot} from '../../store/spots'
-import './spotshost.css'
+import { Redirect, useHistory } from "react-router-dom";
+import { states } from '../utils.js'
+import { addSpot } from "../../store/spots"
+import "./spotshost.css"
 
 function SpotsHost() {
-    const [title, setTitle] = useState('')
-    const [country, setCountry] = useState('')
-    const [state, setState] = useState('')
-    const [city, setCity] = useState('')
-    const [address, setAddress] = useState('')
-    const [zipCode, setZipCode] = useState('')
-    const [description, setDescription] = useState('')
-    const [costPerNight, setCostPerNight] = useState('')
-    const [guests, setGuests] = useState('')
-    const [beds, setBeds] = useState('')
-    const [baths, setBaths] = useState('')
-    const [url, setUrl] = useState('')
-
     const history = useHistory()
-    const dispatch = useDispatch();
+    const dispatch = useDispatch()
     const session = useSelector(state => state.session)
+
+
+
+    const [title, setTitle] = useState("")
+    const [country, setCountry] = useState("")
+    const [state, setState] = useState("")
+    const [city, setCity] = useState("")
+    const [address, setAddress] = useState("")
+    const [zipCode, setZipCode] = useState(111111)
+    const [description, setDescription] = useState("")
+    const [costPerNight, setCostPerNight] = useState(1)
+    const [guests, setGuests] = useState("")
+    const [beds, setBeds] = useState("")
+    const [baths, setBaths] = useState("")
+    const [url, setUrl] = useState("")
+    const [kitchen, setKitchen] = useState(false);
+    const [BBQgrill, setBBQgrill] = useState(false);
+    const [fireplace, setFireplace] = useState(false);
+    const [parking, setParking] = useState(false);
+    const [boardGames, setBoardGames] = useState(false);
+    const [hotTub, setHotTub] = useState(false);
+    const [pets, setPets] = useState(false);
+    const [wifi, setWifi] = useState(false)
+
+    // console.log("Kitchen",kitchen)
+    // console.log("beach", privateBeachAccess)
+    // console.log("firePlace", firePlace)
+    // console.log("parking", parking)
+    // console.log("pool", pool)
+    // console.log("hotTub", hotTub)
+    // console.log("pets", pets)
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
         //!!START SILENT
         const payload = {
-          image: {
-              url
-          },
-          spot: {
+         amenities: {
+             kitchen,
+             BBQgrill,
+             fireplace,
+             parking,
+             hotTub,
+             pets,
+             wifi,
+             boardGames,
 
-              userId: session.user.id,
-              address,
-              city,
-              state,
-              country,
-              title,
-              description,
-              costPerNight,
-              zipCode,
-              guests,
-              beds,
-              baths
-          }
-        };
+         },
+         image: {
+            url
+         },
+         spots:{
+          userId: session.user.id,
+          address,
+          city,
+          state,
+          country,
+          title,
+          description,
+          costPerNight,
+          zipCode,
+          guests,
+          beds,
+          baths
+         }
+        }
+
+        // let createdSpot = await dispatch(addSpot(payload))
+
+        // if (createdSpot) {
+        //     history.push(`/spots/${createdSpot.id}`)
+        // }
 
         let createdSpot;
         try {
             createdSpot = await dispatch(addSpot(payload));
-            console.log('created spot', createdSpot)
         } catch (error) {
             throw new Error("This did not work!!")
+            // if (error instanceof ValidationError) setErrorMessages(error.errors);
+            // // If error is not a ValidationError, add slice at the end to remove extra
+            // // "Error: "
+            // else setErrorMessages({ overall: error.toString().slice(7) })
         }
+        //!!END
         if (createdSpot) {
-            console.log(createdSpot)
+        //     //!!START SILENT
+        //     setErrorMessages({});
+        //     //!!END
+            // console.log(createdSpot)
             history.push(`/spots/${createdSpot.id.id}`);
+        //     hideForm();
         }
-    }
+    };
 
-    console.log(states)
+    const handleCancelClick = (e) => {
+        e.preventDefault();
+        //!!START SILENT
+        // setErrorMessages({});
+        //!!END
+        // hideForm();
+    };
+
     return (
         <div id="form-container">
             <h1>Host Form</h1>
@@ -129,7 +178,7 @@ function SpotsHost() {
                             onChange={e => setDescription(e.target.value)}
                         />
                     </label>
-                    <label> Price:
+                    <label> Cost Per Night:
                         <input
                             type='number'
                             placeholder="Cost Per Night"
@@ -145,7 +194,7 @@ function SpotsHost() {
                             onChange={e => setGuests(e.target.value)}
                         />
                     </label>
-                    <label> Bedrooms:
+                    <label> Beds:
                         <input
                             type='number'
                             placeholder="Bedrooms"
@@ -161,18 +210,83 @@ function SpotsHost() {
                             onChange={e => setBaths(e.target.value)}
                         />
                     </label>
-                    <lable> Image URL:
+                    <label> Image url:
                         <input
-                            type='text'
-                            placeholder="URL"
+                            type='string'
+                            placeholder="image url"
                             value={url}
                             onChange={e => setUrl(e.target.value)}
                         />
-                    </lable>
+                    </label>
+                    <label htmlFor="kitchen">Kitchen:
+                    <input
+                        id="kitchen"
+                        type="checkbox"
+                        checked={kitchen}
+                        onChange={(e) => setKitchen(!kitchen)}
+                    />
+                    </label>
+                    <label htmlFor="BBQgrill">BBQ Grill:
+                        <input
+                            id="BBQgrill"
+                            type="checkbox"
+                            checked={BBQgrill}
+                            onChange={(e) => setBBQgrill(!BBQgrill)}
+                        />
+                    </label>
+                    <label htmlFor="fireplace">Fire Place:
+                        <input
+                            id="fireplace"
+                            type="checkbox"
+                            checked={fireplace}
+                            onChange={(e) => setFireplace(!fireplace)}
+                        />
+                    </label>
+                    <label htmlFor="parking">Parking:
+                        <input
+                            id="parking"
+                            type="checkbox"
+                            checked={parking}
+                            onChange={(e) => setParking(!parking)}
+                        />
+                    </label>
+                    <label htmlFor="boardGames">Board Games:
+                        <input
+                            id="boardGames"
+                            type="checkbox"
+                            checked={boardGames}
+                            onChange={(e) => setBoardGames(!boardGames)}
+                        />
+                    </label>
+                    <label htmlFor="hotTub">Hot Tub:
+                        <input
+                            id="hotTub"
+                            type="checkbox"
+                            checked={hotTub}
+                            onChange={(e) => setHotTub(!hotTub)}
+                        />
+                    </label>
+                    <label htmlFor="pets">Pets:
+                        <input
+                            id="pets"
+                            type="checkbox"
+                            checked={pets}
+                            onChange={(e) => setPets(!pets)}
+                        />
+                    </label>
+                    <label htmlFor="wifi">WIFI:
+                        <input
+                            id="wifi"
+                            type="checkbox"
+                            checked={wifi}
+                            onChange={(e) => setWifi(!wifi)}
+                        />
+                    </label>
                     <button className="host-form" type="submit">Create new Spot</button>
-                    <button className="host-form" type="button">Cancel</button>
+                    <button className="host-form" type="button" onClick={handleCancelClick}>Cancel</button>
                 </form>
             </div>
+
         </div>
     )
 }

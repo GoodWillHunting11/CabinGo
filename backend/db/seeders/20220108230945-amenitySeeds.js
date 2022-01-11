@@ -17,7 +17,7 @@ module.exports = {
           updatedAt: new Date(),
         },
         {
-          spotId: 1,
+          spotId: 2,
           parking: true,
           wifi: true,
           pets: false,
@@ -30,7 +30,7 @@ module.exports = {
           updatedAt: new Date(),
         },
         {
-          spotId: 1,
+          spotId: 3,
           parking: false,
           wifi: false,
           pets: false,

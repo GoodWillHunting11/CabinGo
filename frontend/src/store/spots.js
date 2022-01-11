@@ -39,9 +39,9 @@ export const addSpot = (payload) => async (dispatch) => {
 
 export const getOneSpot = (id) => async (dispatch) => {
     const response = await csrfFetch(`/api/spots/${id}`)
-
     if(response.ok) {
         const spot = await response.json()
+        // console.log('response', spot)
         dispatch(loadOne(spot))
     }
 }
@@ -50,7 +50,6 @@ export const getAllSpots = () => async (dispatch) => {
     const response = await csrfFetch('/api/spots')
     if(response.ok){
         const spots = await response.json()
-        console.log('thunk', spots)
         dispatch(loadAll(spots))
     }
 }

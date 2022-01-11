@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, Redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
 import {getAllSpots} from '../../store/spots'
 import './spots.css'
 
@@ -14,6 +14,7 @@ useEffect(() => {
     dispatch(getAllSpots())
 },[])
 
+console.log('all spots',allSpots)
     return (
         <div className="main-container">
             <div className="map">
@@ -21,6 +22,7 @@ useEffect(() => {
             </div>
             <div className="content-container">
                 {allSpots.map(spot => (
+
                 <div className="spots-container">
                     <div className="image-container">
                         <img id='spot-image' key={spot.id} src={spot.Images[0].url} />
@@ -29,7 +31,10 @@ useEffect(() => {
                         <Link to={`/spots/${spot.id}`}>
                             <h2 key={spot.id}>{spot.title}</h2>
                         </Link>
-                        <p id='description' key={spot.id}>Description: {spot.description}</p>
+                        {/* <ul>
+                            <li>{spot.Amenities[0].id}</li>
+                        </ul> */}
+                        {/* {console.log('a spot', spot.Amenities[0])} */}
                         <div className="guest-bed-bath-container">
                             <label id='guests'> Guests:
                                 <p key={spot.id}>{spot.guests}</p>
