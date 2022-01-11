@@ -18,7 +18,7 @@ console.log('all spots',allSpots)
     return (
         <div className="main-container">
             <div className="map">
-                <img id='map-image' src='https://photos.smugmug.com/Maps-Vault/State-Park-System-Maps/Oklahoma-State-Park-Maps/i-zChwSH2/0/4a15f55e/L/Beavers_Bend_Broken_Bow_Lake-L.jpg' />
+                <img id='map-image' src='https://m.psecn.photoshelter.com/img-get/I0000J3iCILMoNNI/s/880/704/White-Mountain-Portrait-1.jpg' />
             </div>
             <div className="content-container">
                 {allSpots.map(spot => (

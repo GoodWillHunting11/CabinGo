@@ -58,7 +58,7 @@ router.post('/host',
        })
    }))
 
-router.put('/:id/edit',
+router.put('/:id/host',
 requireAuth,
 asyncHandler(async (req, res) => {
    const { image, spots, amenities } = req.body
