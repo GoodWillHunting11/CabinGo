@@ -11,32 +11,35 @@ const loadAll = (list) => {
     }
 }
 
-const loadOne = (id) => {
+const loadOne = (spot) => {
     return {
         type: LOAD_ONE,
-        id
+        spot
     }
 }
 
-const addOne = (newSpot) => {
+const addOne = (spot) => {
     return {
         type: ADD_ONE,
-        newSpot
+        spot
     }
 }
 
 export const addSpot = (payload) => async (dispatch) => {
+    console.log('payload in thunk', payload)
     const response = await csrfFetch('/api/spots/host', {
         method: 'POST',
         headers: {"Content-Type": 'application/json'},
         body: JSON.stringify(payload)
     })
-    const data = await response.json()
-    dispatch(addOne(data))
+    const spot = await response.json()
+    dispatch(addOne(spot))
+    return spot;
 }
 
-export const getOneSpot = () => async (dispatch) => {
-    const response = await csrfFetch('/api/spots/:spotId')
+export const getOneSpot = (id) => async (dispatch) => {
+    const response = await csrfFetch(`/api/spots/${id}`)
+
     if(response.ok) {
         const spot = await response.json()
         dispatch(loadOne(spot))
@@ -57,28 +60,33 @@ const initialState = {
 };
 
 const spotsReducer = (state = initialState, action) => {
-    console.log('action list', action)
-    switch(action.type) {
-        case LOAD_ALL:  {
-           const allSpots = {}
-           action.list.forEach(spot => {
+    console.log('action',action)
+    switch (action.type) {
+        case LOAD_ALL: {
+            const allSpots = {}
+            action.list.forEach(spot => {
                 allSpots[spot.id] = spot
-                console.log('all Spots with Images', allSpots)
-           });
-           return {
-               ...state,
-               ...allSpots,
-               list: action.list
-           }
+            });
+            return{
+                ...allSpots,
+                ...state.list,
+                list: action.list
+            }
         }
         case LOAD_ONE: {
+                const newState = {
+                    ...state,
+                    [action.spot.id]: action.spot
+                };
+            return newState;
+        }
+        case ADD_ONE: {
             if(!state[action.spot.id]){
                 const newState = {
                     ...state,
                     [action.spot.id]: action.spot
                 };
                 const spotList = newState.list.map(id => newState[id]);
-                console.log(spotList)
                 spotList.push(action.spot);
                 newState.list = action.list;
                 return newState;
@@ -91,29 +99,10 @@ const spotsReducer = (state = initialState, action) => {
                 }
             }
         }
-        case ADD_ONE: {
-            if (!state[action.newSpot.id]) {
-              const newState = {
-                ...state,
-                [action.newSpot.id]: action.newSpot
-              };
-              const spotsList = newState.list.map(id => newState[id]);
-              spotsList.push(action.newSpot);
-            //   newState.list = sortList(spotsList);
-              return newState;
-            }
-            return {
-              ...state,
-              [action.newSpot.id]: {
-                ...state[action.newSpot.id],
-                ...action.newSpot,
-              }
-            };
-          }
         default:
             return state;
     }
-}
+};
 // {1:{my first spot}, 2:{my second spot}}
 
 export default spotsReducer;

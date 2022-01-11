@@ -10,13 +10,13 @@ function OneSpot() {
     const oneSpot = useSelector(state => state.spots[spotId])
 
     useEffect(() => {
-        dispatch(getOneSpot(oneSpot))
+        dispatch(getOneSpot(spotId))
     },[spotId])
 
         return (
             <div>
-                <h2>{oneSpot.title}</h2>
-                {/* <h2>{state.spo[spotId]}</h2> */}
+                <img src={oneSpot?.Images[0].url} />
+                <h2>{oneSpot?.title}</h2>
             </div>
         )
 }

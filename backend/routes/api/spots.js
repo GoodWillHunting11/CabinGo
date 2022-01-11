@@ -2,7 +2,7 @@ const express = require('express');
 const asyncHandler = require('express-async-handler');
 const { check } = require('express-validator');
 const { handleValidationErrors } = require('../../utils/validation');
-
+const { requireAuth } = require('../../utils/auth');
 
 const { setTokenCookie, restoreUser } = require('../../utils/auth');
 const { User, Spot, Image } = require('../../db/models');
@@ -34,10 +34,10 @@ router.get("/", asyncHandler(async (req, res) => {
     return res.json(spots)
 }))
 
-router.get('/:spotId', asyncHandler(async (req, res) => {
-    const spotId = parseInt(req.params.spotId, 10)
+router.get('/:id', asyncHandler(async (req, res) => {
+    const spotId = parseInt(req.params.id, 10)
     const spot = await Spot.findByPk(spotId, {
-        include: [Image, Amenity]
+        include: [Image]
     })
     return res.json(spot)
 }))
@@ -46,11 +46,16 @@ router.get('/host', asyncHandler(async (req,res) => {
     return res.send('cabin form')
 }))
 
-router.post('/host', asyncHandler(async (req, res) => {
-    const id = await Spot.create(req.body)
-    return res.redirect('/spots')
+router.post('/host',
+ requireAuth,
+ asyncHandler(async (req, res) => {
+    const id = await Spot.create(req.body['spot'])
+    const newImageUrl = {
+        url: req.body['image'].url,
+        spotId: id.id
+    }
+    const newImage = await Image.create(newImageUrl)
+    return res.json({id})
 }))
-
-
 
 module.exports = router;

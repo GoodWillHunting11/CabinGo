@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Redirect, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import {states} from '../utils'
 import {addSpot} from '../../store/spots'
 import './spotshost.css'
@@ -17,34 +17,48 @@ function SpotsHost() {
     const [guests, setGuests] = useState('')
     const [beds, setBeds] = useState('')
     const [baths, setBaths] = useState('')
+    const [url, setUrl] = useState('')
 
     const history = useHistory()
     const dispatch = useDispatch();
     const session = useSelector(state => state.session)
 
     const handleSubmit = async (e) => {
-        e.preventDefault()
+        e.preventDefault();
+
+        //!!START SILENT
         const payload = {
-            userId: session.user.id,
-            title,
-            country,
-            state,
-            city,
-            address,
-            zipCode,
-            description,
-            costPerNight,
-            guests,
-            beds,
-            baths,
+          image: {
+              url
+          },
+          spot: {
+
+              userId: session.user.id,
+              address,
+              city,
+              state,
+              country,
+              title,
+              description,
+              costPerNight,
+              zipCode,
+              guests,
+              beds,
+              baths
+          }
+        };
+
+        let createdSpot;
+        try {
+            createdSpot = await dispatch(addSpot(payload));
+            console.log('created spot', createdSpot)
+        } catch (error) {
+            throw new Error("This did not work!!")
         }
-
-        let createdSpot = await dispatch(addSpot(payload))
-
         if (createdSpot) {
-            history.push(`/spots/${createdSpot.id}`)
+            console.log(createdSpot)
+            history.push(`/spots/${createdSpot.id.id}`);
         }
-
     }
 
     console.log(states)
@@ -147,11 +161,18 @@ function SpotsHost() {
                             onChange={e => setBaths(e.target.value)}
                         />
                     </label>
+                    <lable> Image URL:
+                        <input
+                            type='text'
+                            placeholder="URL"
+                            value={url}
+                            onChange={e => setUrl(e.target.value)}
+                        />
+                    </lable>
                     <button className="host-form" type="submit">Create new Spot</button>
                     <button className="host-form" type="button">Cancel</button>
                 </form>
             </div>
-
         </div>
     )
 }
