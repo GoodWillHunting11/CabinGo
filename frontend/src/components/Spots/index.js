@@ -25,7 +25,7 @@ console.log('all spots',allSpots)
 
                 <div className="spots-container">
                     <div className="image-container">
-                        <img id='spot-image' key={spot.id} src={spot.Images[0].url} />
+                        <img id='spot-image' key={spot.id} src={spot?.Images[0]?.url} />
                     </div>
                     <div className="info">
                         <Link to={`/spots/${spot.id}`}>
