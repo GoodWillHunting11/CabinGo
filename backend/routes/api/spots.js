@@ -29,10 +29,6 @@ router.get('/:id', asyncHandler(async (req, res) => {
     return res.json(spot)
 }))
 
-router.get('/host', asyncHandler(async (req,res) => {
-    return res.send('cabin form')
-}))
-
 router.post('/host',
 
     requireAuth,
@@ -61,6 +57,33 @@ router.post('/host',
            id
        })
    }))
+
+router.put('/:id/edit',
+requireAuth,
+asyncHandler(async (req, res) => {
+   const { image, spots, amenities } = req.body
+   const id = await Spot.update(spots)
+   const newImageUrl = {
+       spotId: id.id,
+       url: image.url
+   }
+   await Image.update(newImageUrl)
+   const newAmenityList = {
+       spotId: id.id,
+       kitchen: amenities.kitchen,
+       boardGames: amenities.boardGames,
+       fireplace: amenities.fireplace,
+       parking: amenities.parking,
+       wifi: amenities.wifi,
+       hotTub: amenities.hotTub,
+       pets: amenities.pets,
+       BBQgrill: amenities.BBQgrill
+   }
+   await Amenity.update(newAmenityList);
+   return res.json({
+       id
+   })
+}))
 
 
  requireAuth,

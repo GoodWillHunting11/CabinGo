@@ -11,7 +11,10 @@ function Navigation({ isLoaded }){
   let sessionLinks;
   if (sessionUser) {
     sessionLinks = (
-      <ProfileButton user={sessionUser} />
+      <>
+        <NavLink to ='/spots/host'>Host a Cabin</NavLink>
+        <ProfileButton user={sessionUser} />
+      </>
     );
   } else {
     sessionLinks = (
@@ -31,9 +34,6 @@ function Navigation({ isLoaded }){
         </div>
       </div>
       <div className='mid-nav'>
-        <div id='host-spot'>
-          <NavLink to ='/spots/host'>Host a Cabin</NavLink>
-        </div>
       </div>
       <div className='right-nav'>
         <div id='signup-login'>

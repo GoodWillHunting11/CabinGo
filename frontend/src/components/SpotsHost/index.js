@@ -76,39 +76,20 @@ function SpotsHost() {
          }
         }
 
-        // let createdSpot = await dispatch(addSpot(payload))
-
-        // if (createdSpot) {
-        //     history.push(`/spots/${createdSpot.id}`)
-        // }
-
         let createdSpot;
         try {
             createdSpot = await dispatch(addSpot(payload));
         } catch (error) {
             throw new Error("This did not work!!")
-            // if (error instanceof ValidationError) setErrorMessages(error.errors);
-            // // If error is not a ValidationError, add slice at the end to remove extra
-            // // "Error: "
-            // else setErrorMessages({ overall: error.toString().slice(7) })
         }
-        //!!END
         if (createdSpot) {
-        //     //!!START SILENT
-        //     setErrorMessages({});
-        //     //!!END
-            // console.log(createdSpot)
             history.push(`/spots/${createdSpot.id.id}`);
-        //     hideForm();
         }
     };
 
     const handleCancelClick = (e) => {
         e.preventDefault();
-        //!!START SILENT
-        // setErrorMessages({});
-        //!!END
-        // hideForm();
+
     };
 
     return (

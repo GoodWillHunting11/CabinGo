@@ -41,7 +41,6 @@ export const getOneSpot = (id) => async (dispatch) => {
     const response = await csrfFetch(`/api/spots/${id}`)
     if(response.ok) {
         const spot = await response.json()
-        // console.log('response', spot)
         dispatch(loadOne(spot))
     }
 }
