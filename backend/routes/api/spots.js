@@ -47,6 +47,7 @@ router.get('/host', asyncHandler(async (req,res) => {
 }))
 
 router.post('/host',
+
     requireAuth,
     asyncHandler(async (req, res) => {
        const { image, spots, amenities } = req.body
@@ -73,5 +74,17 @@ router.post('/host',
            id
        })
    }))
+
+
+ requireAuth,
+ asyncHandler(async (req, res) => {
+    const id = await Spot.create(req.body['spot'])
+    const newImageUrl = {
+        url: req.body['image'].url,
+        spotId: id.id
+    }
+    const newImage = await Image.create(newImageUrl)
+    return res.json({id})
+})
 
 module.exports = router;
