@@ -31,10 +31,6 @@ console.log('all spots',allSpots)
                         <Link to={`/spots/${spot.id}`}>
                             <h2 key={spot.id}>{spot.title}</h2>
                         </Link>
-                        {/* <ul>
-                            <li>{spot.Amenities[0].id}</li>
-                        </ul> */}
-                        {/* {console.log('a spot', spot.Amenities[0])} */}
                         <div className="guest-bed-bath-container">
                             <label id='guests'> Guests:
                                 <p key={spot.id}>{spot.guests}</p>
