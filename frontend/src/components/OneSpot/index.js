@@ -27,12 +27,12 @@ function OneSpot() {
                 <p>{oneSpot?.state}</p>
                 <p>{oneSpot?.zipCode}</p>
             </div>
-            <ul> Details:
+            <div> Details:
                 <p>{`Bathrooms: ${oneSpot?.baths}`}</p>
                 <p>{`Bedrooms: ${oneSpot?.beds}`}</p>
                 <p>{`Guests: ${oneSpot?.guests}`}</p>
-            </ul>
-            <ul> Amenities:
+            </div>
+            <div> Amenities:
                 <p>{`Fireplace: ${oneSpot?.Amenities[0]?.fireplace}`}</p>
                 <p>{`Hot Tub: ${oneSpot?.Amenities[0]?.hotTub}`}</p>
                 <p>{`Kitchen: ${oneSpot?.Amenities[0]?.kitchen}`}</p>
@@ -41,7 +41,7 @@ function OneSpot() {
                 <p>{`BBQ Grill: ${oneSpot?.Amenities[0]?.BBQgrill}`}</p>
                 <p>{`Board Games: ${oneSpot?.Amenities[0]?.boardGames}`}</p>
                 <p>{`WIFI: ${oneSpot?.Amenities[0]?.wifi}`}</p>
-            </ul>
+            </div>
             <h3>{`$${oneSpot?.costPerNight}/Night`}</h3>
 
         </div>
