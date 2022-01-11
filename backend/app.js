@@ -14,6 +14,7 @@ const app = express()
 app.use(morgan('dev'))
 app.use(cookieParser());
 app.use(express.json());
+app.use(helmet.crossOriginResourcePolicy({ policy: "cross-origin" }));
 // Security Middleware
 if (!isProduction) {
     // enable cors only in development
