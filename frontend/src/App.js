@@ -9,6 +9,7 @@ import OneSpot from './components/OneSpot'
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
 import Home from './components/Home'
+import SpotsHostEdit from "./components/SpotsHostEdit";
 
 function App() {
   const dispatch = useDispatch();
@@ -39,6 +40,9 @@ function App() {
           </Route>
           <Route exact path='/spots/:spotId'>
             <OneSpot />
+          </Route>
+          <Route exact path='/spots/:spotId/host'>
+            <SpotsHostEdit />
           </Route>
         </Switch>
       )}

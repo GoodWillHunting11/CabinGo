@@ -14,16 +14,17 @@ const app = express()
 app.use(morgan('dev'))
 app.use(cookieParser());
 app.use(express.json());
-app.use(helmet.crossOriginResourcePolicy({ policy: "cross-origin" }));
+
 // Security Middleware
 if (!isProduction) {
     // enable cors only in development
     app.use(cors());
 }
 // helmet helps set a variety of headers to better secure your app
-app.use(helmet({
-    contentSecurityPolicy: false
-}));
+// app.use(helmet({
+//     contentSecurityPolicy: false
+// }));
+app.use(helmet.crossOriginResourcePolicy({ policy: "cross-origin" }));
 //aa
 // Set the _csrf token and create req.csrfToken method
 app.use(

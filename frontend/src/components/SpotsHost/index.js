@@ -264,7 +264,9 @@ function SpotsHost() {
                         />
                     </label>
                     <button className="host-form" type="submit">Create new Spot</button>
-                    <button className="host-form" type="button" onClick={handleCancelClick}>Cancel</button>
+                    <a href="/">
+                        Cancel
+                    </a>
                 </form>
             </div>
 
