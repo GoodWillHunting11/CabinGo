@@ -8,13 +8,10 @@ const Demo = () => {
     const handleClick = (e) => {
         e.preventDefault()
 
-        const credential = 'Demo-lition';
+        const credential = 'Demo';
         const password = 'password'
 
         dispatch(sessionActions.login({ credential, password }))
-            // .catch(async (res) => {
-            //     const data = await res.json()
-            // });
     }
 
     return (

@@ -8,6 +8,48 @@ const { setTokenCookie, restoreUser } = require('../../utils/auth');
 const { User, Spot, Image, Amenity } = require('../../db/models');
 const router = express.Router();
 
+const spotHostForm = [
+    check('address')
+        .exists({ checkFalsy: true })
+        .isLength({ max: 255 })
+        .withMessage("Address must be less 255 characters"),
+    check('city')
+        .exists({ checkFalsy: true })
+        .isLength({ max: 255 })
+        .withMessage("City must be less 255 characters"),
+    check('state')
+        .exists({ checkFalsy: true })
+        .isLength({ max: 50 })
+        .withMessage("City must be less 255 characters"),
+    check('country')
+        .exists({ checkFalsy: true })
+        .isLength({ max: 50 })
+        .withMessage("Country must be less 50 characters"),
+    check('title')
+        .exists({ checkFalsy: true })
+        .isLength({ max: 100 })
+        .withMessage("Title must be less 100 characters"),
+    check('description')
+        .exists({ checkFalsy: true })
+        .withMessage("Please provide a description"),
+    check('costPerNight')
+        .exists({ checkFalsy: true })
+        .withMessage("Please provide a price per night"),
+    check('zipCode')
+        .exists({ checkFalsy: true })
+        .withMessage("Please provide a valid zip code"),
+    check('guests')
+        .exists({ checkFalsy: true })
+        .withMessage("Please provide a valid zip code"),
+    check('beds')
+        .exists({ checkFalsy: true })
+        .withMessage("Please provide a valid zip code"),
+    check('baths')
+        .exists({ checkFalsy: true })
+        .withMessage("Please provide a valid zip code"),
+    handleValidationErrors,
+];
+
 
 //GET ALL ROUTE
 
@@ -34,8 +76,8 @@ router.get('/:id', asyncHandler(async (req, res) => {
 //POST ROUTE
 
 router.post('/host',
-
     requireAuth,
+    spotHostForm,
     asyncHandler(async (req, res) => {
        const { image, spots, amenities } = req.body
        const id = await Spot.create(spots)

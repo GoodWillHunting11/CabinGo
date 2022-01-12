@@ -31,6 +31,9 @@ function SpotsHostEdit() {
     const [hotTub, setHotTub] = useState(spotInfo?.Amenities[0].hotTub);
     const [pets, setPets] = useState(spotInfo?.Amenities[0].pets)
     const [wifi, setWifi] = useState(spotInfo?.Amenities[0].wifi)
+    const [errorValidations, setErrorValidations] = useState([])
+
+
 
     useEffect(() => {
         dispatch(getOneSpot(spotId))
@@ -101,7 +104,6 @@ function SpotsHostEdit() {
         setHotTub(localHotTub === 'true'? true : false)
         setPets(localPets === 'true'? true : false)
         setWifi(localWifi === 'true'? true : false)
-        
     }, [])
 
 
@@ -153,6 +155,24 @@ function SpotsHostEdit() {
         }
     };
 
+    useEffect(() => {
+        const errors = []
+        if(title?.length === 0) errors.push('Please provide a title')
+        if(address?.length === 0) errors.push('Please provide an address')
+        if(city?.length === 0) errors.push('Please provide a city')
+        if(country?.length === 0) errors.push('Please provide a country')
+        if(description?.length === 0) errors.push('Please provide a description')
+        if(costPerNight === '0') errors.push('Please provide a cost per night')
+        if(guests === '0') errors.push('Please provide number of guests')
+        if(beds === '0') errors.push('Please provide number of beds')
+        if(baths === '0') errors.push('Please provide number of baths')
+        if(zipCode?.length < 5) errors.push('Please provide a valid zip code')
+        if(state === 'Select a State') errors.push('Please choose a state')
+        if (!url?.includes("http" || 'https')) errors.push("Must provide a valid photo.")
+        setErrorValidations(errors)
+    },[title, address, city, country, description, costPerNight, guests, beds, baths, zipCode, state, url])
+
+
     const handleCancelClick = (e) => {
         e.preventDefault();
 
@@ -162,6 +182,11 @@ function SpotsHostEdit() {
         <div id="form-container">
             <h1>Host Form</h1>
             <div id="host-form" >
+                <ul>
+                {errorValidations?.map(error => (
+                    <li key={error}>{error}</li>
+                ))}
+                </ul>
                 <form onSubmit={handleSubmit}>
                     <label> Spot Name:
                         <input
@@ -329,7 +354,7 @@ function SpotsHostEdit() {
                             onChange={(e) => setWifi(!wifi)}
                         />
                     </label>
-                    <button className="host-form" type="submit">Create new Spot</button>
+                    <button className="host-form" disabled={errorValidations?.length > 0} type="submit">Edit Cabin</button>
                     <a href="/">
                         Cancel
                     </a>

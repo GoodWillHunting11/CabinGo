@@ -17,6 +17,7 @@ body {
     justify-content: center;
     align-items: center;
     margin-top: 30px;
+    margin-bottom: 30px;
 }
 
 #spots-imagee {
@@ -29,12 +30,44 @@ body {
     font-stretch: ultra-expanded;
     font-size: 30px;
     width: 180px;
+    color: purple;
     border-radius: 25px;
     border: 1px solid black;
+}
+
+#explore-btn:hover {
+    box-shadow: 2px 2px 1px 1px rgba(0, 0, 0, 0.55);
+}
+
+#become-host-btn {
+    font-family: monospace;
+    font-stretch: ultra-expanded;
+    font-size: 30px;
+    width: 270px;
+    color: purple;
+    border-radius: 25px;
+    border: 1px solid black;
+}
+
+.become-host {
+    position: absolute;
+    left: 44.25%;
+    top: 167%;
+}
+
+.where-to-go {
+    position: absolute;
+    top:60%;
+    left:41.7%;
+    color: purple;
+}
+
+#become-host-btn:hover {
+    box-shadow: 2px 2px 1px 1px rgba(0, 0, 0, 0.55);
 }
 
 .explore {
     position: absolute;
     left:46%;
-    top: 85%;
+    top: 75%;
 }
