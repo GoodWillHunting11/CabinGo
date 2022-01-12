@@ -9,43 +9,47 @@ const { User, Spot, Image, Amenity } = require('../../db/models');
 const router = express.Router();
 
 const spotHostForm = [
-    check('address')
+    check('spots.address')
         .exists({ checkFalsy: true })
         .isLength({ max: 255 })
         .withMessage("Address must be less 255 characters"),
-    check('city')
+    check('spots.city')
         .exists({ checkFalsy: true })
         .isLength({ max: 255 })
         .withMessage("City must be less 255 characters"),
-    check('state')
+    check('spots.state')
         .exists({ checkFalsy: true })
         .isLength({ max: 50 })
         .withMessage("City must be less 255 characters"),
-    check('country')
+    check('spots.country')
         .exists({ checkFalsy: true })
         .isLength({ max: 50 })
         .withMessage("Country must be less 50 characters"),
-    check('title')
+    check('spots.title')
         .exists({ checkFalsy: true })
         .isLength({ max: 100 })
         .withMessage("Title must be less 100 characters"),
-    check('description')
+    check('spots.description')
         .exists({ checkFalsy: true })
         .withMessage("Please provide a description"),
-    check('costPerNight')
+    check('spots.costPerNight')
         .exists({ checkFalsy: true })
         .withMessage("Please provide a price per night"),
-    check('zipCode')
+    check('spots.zipCode')
         .exists({ checkFalsy: true })
         .withMessage("Please provide a valid zip code"),
-    check('guests')
+    check('spots.guests')
         .exists({ checkFalsy: true })
         .withMessage("Please provide a valid zip code"),
-    check('beds')
+    check('spots.beds')
         .exists({ checkFalsy: true })
         .withMessage("Please provide a valid zip code"),
-    check('baths')
+    check('spots.baths')
         .exists({ checkFalsy: true })
+        .withMessage("Please provide a valid zip code"),
+    check('image.url')
+        .exists({ checkFalsy: true })
+        .isLength({ max: 255 })
         .withMessage("Please provide a valid zip code"),
     handleValidationErrors,
 ];
@@ -80,6 +84,9 @@ router.post('/host',
     spotHostForm,
     asyncHandler(async (req, res) => {
        const { image, spots, amenities } = req.body
+       console.log('images', image)
+       console.log('spots', spots)
+       console.log('amenities', amenities)
        const id = await Spot.create(spots)
        const newImageUrl = {
            spotId: id.id,
