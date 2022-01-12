@@ -9,25 +9,29 @@ const { User, Spot, Image, Amenity } = require('../../db/models');
 const router = express.Router();
 
 
-
+//GET ALL ROUTE
 
 router.get("/", asyncHandler(async (req, res) => {
     const spots = await Spot.findAll({
         include: [Image, Amenity, User]
     })
-        // console.log('spots', spots)
-    // console.log('with images', spots[0].Images[0].url)
     return res.json(spots)
 }))
+
+
+//GET ONE ROUTE
 
 router.get('/:id', asyncHandler(async (req, res) => {
     const spotId = parseInt(req.params.id, 10)
     const spot = await Spot.findByPk(spotId, {
         include: [Image, Amenity, User]
     })
-    // console.log('spots', spot.User['dataValues'].username)
+
     return res.json(spot)
 }))
+
+
+//POST ROUTE
 
 router.post('/host',
 
@@ -52,11 +56,13 @@ router.post('/host',
            BBQgrill: amenities.BBQgrill
        }
        await Amenity.create(newAmenityList)
-       // await setTokenCookie(res, id);
        return res.json({
            id
        })
    }))
+
+
+   //EDIT ROUTE
 
    router.put('/:id/host',
    requireAuth,
@@ -66,11 +72,8 @@ router.post('/host',
        const currSpot = await Spot.findByPk(spotId);
 
        const { image, spots, amenities } = req.body
-        // update spot
        const id = await currSpot.update(spots)
-       // console.log("FLAGGGGGGG", image.id)
 
-        //  update image
                const newImageUrl = {
                    id: image.id,
                    spotId: id.id,
@@ -78,11 +81,8 @@ router.post('/host',
                }
 
        const currImage = await Image.findByPk(image.id);
-       // console.log(currImage, "<=========")
        await currImage.update(newImageUrl)
 
-        console.log("AAAAAA",amenities)
-       // update amenity
        const newAmenityList = {
     spotId: id.id,
     kitchen: amenities.kitchen,
@@ -97,11 +97,40 @@ router.post('/host',
 
        const currAmenity = await Amenity.findByPk(amenities.id)
        await currAmenity.update(newAmenityList);
-
-       return res.json({
-           id
-       })
+       return res.json({id})
    }))
+
+
+   //DELETE ROUTE
+
+   router.delete('/:id', asyncHandler(async (req, res) => {
+    console.log("DELETE ROUTE","HIIIIII");
+    const { id, Images, Amenities } = req.body
+    const spotId = parseInt(req.params.id, 10);
+    const imageId = Images[0].id;
+    const amenitiesId = Amenities[0].id;
+
+    const currSpot = await Spot.findByPk(spotId);
+    const currImage = await Image.findByPk(imageId);
+    const currAmenity = await Amenity.findByPk(amenitiesId);
+
+    console.log("DELETE BODY SPOT ====>", currSpot)
+    console.log("DELETE BODY Image ===>", currImage)
+    console.log("DELETE BODY Amenities ===> ", currAmenity)
+
+
+    if (currSpot && currImage && currAmenity) {
+        await currAmenity.destroy();
+        await currImage.destroy();
+        await currSpot.destroy();
+
+        res.json({ message: "Delete Successful" });
+    } else {
+        console.log('unsuccessful');
+    }
+
+    res.json({ message: "Delete Unsuccessful" });
+}));
 
 
  requireAuth,
@@ -114,18 +143,5 @@ router.post('/host',
     const newImage = await Image.create(newImageUrl)
     return res.json({id})
 })
-
-
-// const newAmenityList = {
-//     spotId: id.id,
-//     kitchen: amenities.kitchen,
-//     boardGames: amenities.boardGames,
-//     fireplace: amenities.fireplace,
-//     parking: amenities.parking,
-//     wifi: amenities.wifi,
-//     hotTub: amenities.hotTub,
-//     pets: amenities.pets,
-//     BBQgrill: amenities.BBQgrill
-// }
 
 module.exports = router;

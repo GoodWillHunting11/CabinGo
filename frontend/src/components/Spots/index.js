@@ -21,28 +21,28 @@ console.log('all spots',allSpots)
                 <img id='map-image' src='https://m.psecn.photoshelter.com/img-get/I0000J3iCILMoNNI/s/880/704/White-Mountain-Portrait-1.jpg' />
             </div>
             <div className="content-container">
-                {allSpots.map(spot => (
+                {allSpots?.map(spot => (
 
                 <div className="spots-container">
                     <div className="image-container">
-                        <img id='spot-image' key={spot.id} src={spot?.Images[0]?.url}></img>
+                        <img id='spot-image' key={spot?.id} src={spot?.Images[0]?.url}></img>
                     </div>
                     <div className="info">
-                        <Link to={`/spots/${spot.id}`}>
-                            <h2 key={spot.id}>{spot.title}</h2>
+                        <Link to={`/spots/${spot?.id}`}>
+                            <h2 key={spot?.id}>{spot?.title}</h2>
                         </Link>
                         <div className="guest-bed-bath-container">
                             <label id='guests'> Guests:
-                                <p key={spot.id}>{spot.guests}</p>
+                                <p key={spot?.id}>{spot?.guests}</p>
                             </label>
                             <label id='beds'> Beds:
-                                <p key={spot.id}>{spot.beds}</p>
+                                <p key={spot?.id}>{spot?.beds}</p>
                             </label>
                             <label id='baths'> Baths:
-                                <p key={spot.id}>{spot.baths}</p>
+                                <p key={spot?.id}>{spot?.baths}</p>
                             </label>
                         </div>
-                        <p key={spot.id}>Cost{spot.costPerNight}</p>
+                        <p key={spot?.id}>Cost{spot?.costPerNight}</p>
                     </div>
                 </div>
                 ))}

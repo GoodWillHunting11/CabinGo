@@ -10,9 +10,7 @@ function SpotsHostEdit() {
     const dispatch = useDispatch()
     const session = useSelector(state => state.session)
     const {spotId} = useParams()
-    console.log('damn id', spotId)
     const spotInfo = useSelector(state => state.spots[spotId])
-    console.log('damn spotInfo', spotInfo)
     const [title, setTitle] = useState(spotInfo?.title)
     const [country, setCountry] = useState(spotInfo?.country)
     const [state, setState] = useState(spotInfo?.state)
@@ -59,7 +57,9 @@ function SpotsHostEdit() {
     }, [])
 
     useEffect(() => {
+
         dispatch(getOneSpot(spotId))
+
         const localTitle = localStorage.getItem("title")
         const localCountry = localStorage.getItem('country')
         const localState = localStorage.getItem('state')
@@ -80,6 +80,7 @@ function SpotsHostEdit() {
         const localHotTub = localStorage.getItem('hotTub')
         const localPets = localStorage.getItem('pets')
         const localWifi = localStorage.getItem('wifi')
+
         setTitle(localTitle)
         setCountry(localCountry)
         setState(localState)
@@ -100,6 +101,7 @@ function SpotsHostEdit() {
         setHotTub(localHotTub === 'true'? true : false)
         setPets(localPets === 'true'? true : false)
         setWifi(localWifi === 'true'? true : false)
+        
     }, [])
 
 
@@ -142,7 +144,6 @@ function SpotsHostEdit() {
         let editedSpot;
         try {
             editedSpot = await dispatch(editSpot(payload, spotId));
-            console.log('created spot',editedSpot)
         } catch (error) {
             throw new Error("This did not work!!")
         }

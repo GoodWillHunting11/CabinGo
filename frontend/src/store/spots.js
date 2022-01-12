@@ -3,6 +3,15 @@
 const LOAD_ALL = 'spots/LOAD_ALL'
 const LOAD_ONE = 'spots/LOAD_ONE'
 const ADD_ONE = 'spots/ADD_ONE'
+const DELETE_ONE = 'spots/DELETE_ONE';
+
+const addOne = (spot) => {
+    return {
+        type: ADD_ONE,
+        spot
+    }
+}
+
 
 const loadAll = (list) => {
     return {
@@ -18,10 +27,25 @@ const loadOne = (spot) => {
     }
 }
 
-const addOne = (spot) => {
+const deleteOneSpot = (spotId) => {
     return {
-        type: ADD_ONE,
-        spot
+        type: DELETE_ONE,
+        spotId
+    }
+}
+
+export const deleteSpot = (payload, id) => async (dispatch) => {
+    const response = await csrfFetch(`/api/spots/${id}`, {
+        method: "DELETE",
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload,id)
+    });
+
+    if (response.ok) {
+        const spot = await response.json();
+
+         await dispatch(deleteOneSpot(spot));
+        return spot;
     }
 }
 
@@ -108,6 +132,11 @@ const spotsReducer = (state = initialState, action) => {
                     ...action.spot
                 }
             }
+        }
+        case DELETE_ONE: {
+            const newState = { ...state };
+            delete newState[action.spotId];
+            return newState;
         }
         default:
             return state;
