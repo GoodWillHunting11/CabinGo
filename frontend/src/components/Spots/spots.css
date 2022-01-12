@@ -23,10 +23,10 @@ p {
 }
 
 .spots-container {
-    border-bottom: gray 2px solid;
+    border-bottom: rgba(20,20,20,0.1) 2px solid;
     display: flex;
     height: 330px;
-    width: 100%;
+    width: 98%;
 }
 
 .image-container {
@@ -40,7 +40,7 @@ p {
 
 .info {
     display: flex;
-    flex-direction: column;
+    /* flex-direction: column; */
     align-items: flex-start;
     line-height: 1px;
     /* border: solid 2px blue; */
@@ -50,9 +50,47 @@ p {
     padding-left: 25px;
 }
 
+.line-div {
+    border: 1px solid rgba(20,20,20,0.1);
+    width: 17%;
+    margin-top: 15px;
+    margin-left: 3px;
+}
+
 .guest-bed-bath-container {
     display: flex;
     gap:10px;
+    padding-top: 20px;
+}
+
+.amenities-container-all {
+    margin-bottom: 50px;
+}
+
+#amenities-all {
+    margin-bottom: 30px;
+}
+
+.cost-per-night-all-spots {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.outer-div-csp-all-spots {
+    display: flex;
+    align-items: flex-end;
+    padding-top: 260px;
+    padding-left: 280px;
+}
+
+.left-info-all {
+    display: flex;
+    flex-direction: column;
+}
+
+.right-info-all {
+    display: flex;
+    justify-content: flex-end;
 }
 
 #spot-image {
@@ -68,19 +106,40 @@ p {
 
 #guests {
     font-size: 15px;
-    font-weight: 500;
+    font-weight: 400;
+    padding-left: 7px;
+    padding-top: 2px;
 }
 
 #baths {
     font-size: 15px;
-    font-weight: 500;
+    font-weight: 400;
+    padding-left: 7px;
+    padding-top: 2px;
 }
 
 #beds {
     font-size: 15px;
+    font-weight: 400;
+    padding-left: 7px;
+    padding-top: 2px;
+}
+
+#all-spots-title {
     font-weight: 500;
 }
 
-#description {
-    padding-bottom: 30px;
+.style-b-b-g {
+    display: flex;
+    /* gap: 1px; */
+}
+
+.bullet-point-all-spots {
+    padding-top:16px;
+    padding-left: 7px;
+}
+
+.bullet-point-all-spots-beds {
+    padding-top:16px;
+    padding-left: 7px;
 }

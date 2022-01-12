@@ -115,6 +115,7 @@ router.post('/host',
 
    router.put('/:id/host',
    requireAuth,
+   spotHostForm,
    asyncHandler(async (req, res) => {
        console.log("here")
        const spotId = parseInt(req.params.id, 10);
