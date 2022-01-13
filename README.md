@@ -47,24 +47,24 @@ CabinGo is an application where users can post spots to host or book spots.
 ## Technologies 
 ***
 Technologies used within the project:
-* [bcryptjs](https://www.npmjs.com/package/bcrypt): Version 2.4.3--
-* [cookie-parser](https://www.npmjs.com/package/cookie-parser): Version 1.4.6--
-* [csurf](https://www.npmjs.com/package/csurf): Version 1.11.0--
-* [cors]() Version 2.8.5--
-* [debug](https://www.npmjs.com/package/debug): Version 2.6.9--
-* [express](https://expressjs.com/en/4x/api.html#express): Version 4.17.2--
-* [express-validator](https://express-validator.github.io/docs/): Version  6.14.0--
-* [express-async-handler]() Version 1.2.0--
-* [helmet](): Version 5.0.1--
-* [jsonwebtoken]() Version 8.5.1--
-* [morgan](https://www.npmjs.com/package/morgan): Version 1.10.0--
-* [per-env](): Version 1.0.2--
-* [pg](https://www.npmjs.com/package/pg): Version 8.7.1--
-* [sequelize](https://sequelize.org/master/class/lib/sequelize.js~Sequelize.html): Version 5.22.5--
-* [sequelize-cli](https://sequelize.org/master/class/lib/sequelize.js~Sequelize.html): Version 5.5.1--
-* [dotenv](https://www.npmjs.com/package/dotenv): Version 10.0.0--
-* [dotenv-cli](https://www.npmjs.com/package/dotenv-cli): Version 4.1.1--
-* [nodemon](https://www.npmjs.com/package/nodemon): Version 2.0.15--
+* [bcryptjs](https://www.npmjs.com/package/bcrypt): Version 2.4.3
+* [cookie-parser](https://www.npmjs.com/package/cookie-parser): Version 1.4.6
+* [csurf](https://www.npmjs.com/package/csurf): Version 1.11.0
+* [cors]() Version 2.8.5
+* [debug](https://www.npmjs.com/package/debug): Version 2.6.9
+* [express](https://expressjs.com/en/4x/api.html#express): Version 4.17.2
+* [express-validator](https://express-validator.github.io/docs/): Version  6.14.0
+* [express-async-handler]() Version 1.2.0
+* [helmet](): Version 5.0.1
+* [jsonwebtoken]() Version 8.5.1
+* [morgan](https://www.npmjs.com/package/morgan): Version 1.10.0
+* [per-env](): Version 1.0.2
+* [pg](https://www.npmjs.com/package/pg): Version 8.7.1
+* [sequelize](https://sequelize.org/master/class/lib/sequelize.js~Sequelize.html): Version 5.22.5
+* [sequelize-cli](https://sequelize.org/master/class/lib/sequelize.js~Sequelize.html): Version 5.5.1
+* [dotenv](https://www.npmjs.com/package/dotenv): Version 10.0.0
+* [dotenv-cli](https://www.npmjs.com/package/dotenv-cli): Version 4.1.1
+* [nodemon](https://www.npmjs.com/package/nodemon): Version 2.0.15
 * React
 * Redux
 * Postgres
@@ -82,18 +82,19 @@ Technologies used within the project:
 To install CabinGo on your local machine please clone the project repository. Once the project has been cloned run ```npm install``` in your terminal to install dependencies.
 ```
  git clone https://github.com/GoodWillHunting11/CabinGo.git
- 
  cd backend
  npm install
  npm start
- 
+```
+ Once the project has been clonde cd into the frontend and run ```npm install``` in your terminal to install the frontend dependencies.
+```
  cd frontend 
  npm install
  npm start
 
 ```
 
-To use the application in a development environment use ```npm start``` in ```frontend``` to start. 
+To use the application in a development environment use ```npm start``` in the frontend and the backend to start the application.. 
 
 
 ## Collaboration
