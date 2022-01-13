@@ -24,6 +24,7 @@ p {
     margin-top: 3.5%;
     display: flex;
     flex-direction: column;
+    margin-bottom: 3%;
     /* align-items: flex-start; */
     width: 60%;
 }
