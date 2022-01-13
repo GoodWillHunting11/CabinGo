@@ -13,38 +13,37 @@
 ### General Info 
 ***
 # CabinGo
-LodgeINN is an application where users can post spots to host or book spots. 
-* Link to live  [LodgeInn](https://lodgeinn.herokuapp.com/) project. 
+CabinGo is an application where users can post spots to host or book spots. 
+* Link to live  [CabinGo](https://cabingo.herokuapp.com/) project. 
 
 
-#### CabinGo Login page
-![LodgeINNLoginPage (2)](imgelink)
-
-
-#### CabinGoSign up page
-![LodgeINNSignUpPage](imgelink)
 
 
 #### CabinGo Home page
-![carraHomePage](imgelink)
+![CabinGoHomePage](imgelink)
 
 
-#### Question details page with an answer and a comment
-![questionDetailsPage](imgelink)
+#### Spot Details with Image and Amenities
+![SpotDetailsPage](imgelink)
 
 
-#### Topics page w/ questions related to topic
-![topics](imgelink)
+#### All Spots with Images and Amenities
+![AllSpotsPage](imgelink)
+
+
+#### CabinGo Login page
+![CabinGoLoginPage](imgelink)
+
+
+#### CabinGoSign up page
+![CabinGoSignUpPage](imgelink)
 
 
 ## Wiki Documentation: 
 ***
 * [Home](link)
-* [API Documentation](link)
 * [Database Schema](link)
-* [Frontend Routes](link)
 * [MVP Feature List](link)
-* [User Stories](link)
 
 ## Technologies 
 ***
