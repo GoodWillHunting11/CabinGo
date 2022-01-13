@@ -3,6 +3,27 @@
 }
 
 .login-form {
+    margin-left:30%;
     display: flex;
     flex-direction: column;
+    width:40%;
+    border: 2px black solid;
+    border-radius: 15px;
+}
+
+.login-container-l {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 10%;
+}
+
+#ln-submit {
+    width: 20%;
+    margin-left: 48%;
+    margin-bottom: 4%;
+}
+
+#one-step-l {
+    padding-right: 19%;
 }
