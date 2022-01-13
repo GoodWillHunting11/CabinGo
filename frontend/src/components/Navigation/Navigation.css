@@ -1,4 +1,6 @@
 .navbar {
+    position:-webkit-sticky;
+    position:sticky;
     display: flex;
     justify-content: space-between;
     border-bottom: gray 2px solid;

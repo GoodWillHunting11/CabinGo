@@ -33,39 +33,70 @@ function OneSpot() {
 
     return (
         <div className='spot-detail'>
-            <h1>{oneSpot?.title}</h1>
-            <img className="spot-image" src={oneSpot?.Images[0]?.url} alt="cabin" />
-            {sessionUser?.id === oneSpot?.userId &&
+            <div className="one-spot-title">
+                <h1 id='title-one-spot'>{oneSpot?.title}</h1>
+            </div>
+            <div className="address-div-one-spot">
+                <p id='address-one-spot'>{`${oneSpot?.address}, `}</p>
+                <p id='city-one-spot'>{`${oneSpot?.city}, `}</p>
+                <p id='state-one-spot'>{`${oneSpot?.state}, `}</p>
+                <p id='country-one-spot'>{`${oneSpot?.country}`}</p>
+            </div>
+            <div className="image-div-one-spot">
+                <img className="spot-image" src={oneSpot?.Images[0]?.url} alt="cabin" />
+                <br />
+            </div>
+            <div className="edit-delete-div-one">
+                {sessionUser?.id === oneSpot?.userId &&
                 <>
                     <Link to={`/spots/${spotId}/host`}>Edit Spot</Link>
-                    <button onClick={deleteBtn}>Delete</button>
+                    <button id='delete-one-spot' onClick={deleteBtn}>Delete</button>
                 </>
-            }
-            <h3>Hosted By: {oneSpot?.User?.username}</h3>
-            <p>{oneSpot?.description}</p>
-            <div id='address-div'> Address:
-                <p>{oneSpot?.address}</p>
-                <p>{oneSpot?.city}</p>
-                <p>{oneSpot?.state}</p>
-                <p>{oneSpot?.zipCode}</p>
+                }
             </div>
-            <div> Details:
-                <p>{`Bathrooms: ${oneSpot?.baths}`}</p>
-                <p>{`Bedrooms: ${oneSpot?.beds}`}</p>
-                <p>{`Guests: ${oneSpot?.guests}`}</p>
+            <div className="host-one-spot">
+                <h2 className="h2-host-name">Hosted By: {oneSpot?.User?.username}</h2>
             </div>
-            <div> Amenities:
-                <p>{`Fireplace: ${oneSpot?.Amenities[0]?.fireplace}`}</p>
-                <p>{`Hot Tub: ${oneSpot?.Amenities[0]?.hotTub}`}</p>
-                <p>{`Kitchen: ${oneSpot?.Amenities[0]?.kitchen}`}</p>
-                <p>{`Parking: ${oneSpot?.Amenities[0]?.parking}`}</p>
-                <p>{`Pets: ${oneSpot?.Amenities[0]?.pets}`}</p>
-                <p>{`BBQ Grill: ${oneSpot?.Amenities[0]?.BBQgrill}`}</p>
-                <p>{`Board Games: ${oneSpot?.Amenities[0]?.boardGames}`}</p>
-                <p>{`WIFI: ${oneSpot?.Amenities[0]?.wifi}`}</p>
+            <div className="guest-bed-bath-one-spot">
+                <p id='guests-one'>{`${oneSpot?.guests}`}</p>
+                <p>{(oneSpot?.guests > 1 ? 'guests' : 'guest')}</p>
+                <span className="bullet-point-one-spot">∙</span>
+                <p id='beds-one'>{`${oneSpot?.beds}`}</p>
+                <p>{(oneSpot?.beds > 1 ? 'bedrooms' : 'bedroom')}</p>
+                <span className="bullet-point-one-spot">∙</span>
+                <p id='baths-one'>{`${oneSpot?.baths}`}</p>
+                <p>{(oneSpot?.baths > 1 ? 'baths' : 'bath')}</p>
+                <h3 id='cost-one-spot'>{`$${oneSpot?.costPerNight}/Night`}</h3>
             </div>
-            <h3>{`$${oneSpot?.costPerNight}/Night`}</h3>
-
+            <div className="line-one-spot"></div>
+            <h3 id='entire-home'>Entire Home</h3>
+            <h4 id='cabin-yourself'>You'll have the cabin to yourself.</h4>
+            <h3 id='self-check'>Self check-in</h3>
+            <h4 id='check-yourself'>Check yourself in with the keypad.</h4>
+            <h3 id='great-location'>Great location</h3>
+            <h4 id='location-rating'>95% of recent guests gave the location a 5-star rating.</h4>
+            <div className="line-one-spot"></div>
+            <div className="description-one-spot">
+                <p>{oneSpot?.description}</p>
+            </div>
+            <div className="line-one-spot"></div>
+            <div className="amenities-offered">
+                <h2 id='place-offers'>What this place offers</h2>
+            </div>
+            <div className="all-amenities-one">
+                <div className="left-amenities">
+                    <p>{(oneSpot?.Amenities[0]?.fireplace) ? 'Fireplace' : ''}</p>
+                    <p>{(oneSpot?.Amenities[0]?.hotTub) ? 'Hot Tub' : ''}</p>
+                    <p>{(oneSpot?.Amenities[0]?.kitchen) ? 'Kitchen' : ''}</p>
+                    <p>{(oneSpot?.Amenities[0]?.parking) ? 'Parking' : ''}</p>
+                </div>
+                <div className="right-amenities">
+                    <p>{(oneSpot?.Amenities[0]?.pets) ? 'Pets' : ''}</p>
+                    <p>{(oneSpot?.Amenities[0]?.BBQgrill) ? 'BBQ Grill' : ''}</p>
+                    <p>{(oneSpot?.Amenities[0]?.boardGames) ? 'Board Games' : ''}</p>
+                    <p>{(oneSpot?.Amenities[0]?.wifi) ? 'Wifi' : ''}</p>
+                </div>
+            </div>
         </div>
     )
 }

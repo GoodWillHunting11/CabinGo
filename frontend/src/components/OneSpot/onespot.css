@@ -1,4 +1,199 @@
+
 #address-url {
     display: flex;
     flex-direction: row;
+}
+
+#city-one-spot {
+    padding-left: 4px;
+    font-weight: 500;
+}
+
+#title-one-spot {
+    margin:0;
+    padding-top: 30px;
+    font-weight: 500;
+}
+
+#state-one-spot {
+    padding-left: 4px;
+    font-weight: 500;
+}
+
+#country-one-spot {
+    padding-left: 4px;
+    font-weight: 500;
+}
+
+#address-one-spot {
+    font-weight: 500;
+}
+
+.spot-detail {
+    display: flex;
+    flex-direction: column;
+}
+
+.one-spot-title {
+    display: flex;
+    padding-left: 20%;
+}
+
+.image-div-one-spot {
+    display: flex;
+    justify-content: center;
+}
+
+.address-div-one-spot {
+    display: flex;
+    padding-left: 20.5%;
+    padding-bottom: 5px;
+}
+
+.host-one-spot {
+    padding-left: 23%;
+}
+
+.h2-host-name {
+    font-weight: 500;
+    margin:0;
+    padding-top: 15px;
+}
+
+.spot-image {
+    display: flex;
+    width: 60%;
+    border-radius: 20px;
+}
+
+.edit-delete-div-one {
+    padding-left: 72%;
+    padding-top:10px;
+}
+
+#delete-one-spot {
+    margin-left: 10px;
+    font-weight: 500;
+    border-radius: 10px;
+    border: 1px solid rgba(10,10,10, 0.7);
+    background-color: white;
+    font-size: 13px;
+}
+
+#delete-one-spot:hover {
+    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.15);
+}
+
+.guest-bed-bath-one-spot {
+    display:flex;
+    padding-left: 23%;
+}
+
+.bullet-point-one-spot {
+    padding-top:16px;
+    padding-left: 7px;
+    padding-right: 7px;
+}
+
+#guests-one {
+    padding-right: 5px;
+}
+
+#beds-one {
+    padding-right: 5px;
+}
+
+#baths-one {
+    padding-right: 5px;
+}
+
+.line-one-spot {
+    border: 1px solid rgba(10,10,10, 0.2);
+    width: 38%;
+    margin-left: 22%;
+}
+
+#entire-home {
+    margin: 0;
+    padding-top: 12px;
+    padding-left: 23%;
+    padding-bottom: 5px;
+    font-weight: 500;
+}
+
+#cabin-yourself {
+    margin: 0;
+    padding-left: 23%;
+    font-weight: 500;
+    color: rgba(0,0,0, 0.5);
+}
+
+#self-check {
+    margin: 0;
+    padding-top: 30px;
+    padding-left: 23%;
+    padding-bottom: 5px;
+    font-weight: 500;
+}
+
+#check-yourself {
+    margin: 0;
+    padding-left: 23%;
+    font-weight: 500;
+    color: rgba(0,0,0, 0.5);
+}
+
+#great-location {
+    margin: 0;
+    padding-top: 30px;
+    padding-left: 23%;
+    padding-bottom: 5px;
+    font-weight: 500;
+}
+
+#location-rating {
+    margin: 0;
+    padding-left: 23%;
+    font-weight: 500;
+    color: rgba(0,0,0, 0.5);
+    padding-bottom: 12px;
+}
+
+.description-one-spot {
+    display: flex;
+    width:33%;
+    padding-left: 23%;
+    padding-top: 7px;
+    padding-bottom: 12px;
+}
+
+#place-offers {
+    font-weight: 500;
+    margin: 0;
+    padding-bottom: 15px;
+    padding-top: 14px;
+}
+
+.amenities-offered {
+    padding-left: 23%
+}
+
+.all-amenities-one {
+    display: flex;
+    padding-left: 23%;
+    padding-right: 58%;
+    margin-bottom: 4%;
+}
+
+.left-amenities {
+    width: 50%;
+}
+
+.right-amenities {
+ width: 50%;
+}
+
+#cost-one-spot {
+    padding-left: 25%;
+    font-weight: 500;
 }

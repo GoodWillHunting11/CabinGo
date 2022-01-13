@@ -22,7 +22,7 @@ console.log('all spots',allSpots)
             <div className="content-container">
                 {allSpots?.map(spot => (
 
-                <div className="spots-container">
+                <div key={spot.id} className="spots-container">
                     <div className="image-container">
                         <img id='spot-image' key={spot?.id} src={spot?.Images[0]?.url}></img>
                     </div>
@@ -45,7 +45,7 @@ console.log('all spots',allSpots)
                                 </div>
                                 <div className="style-b-b-g">
                                     <p key={spot?.id}>{spot?.baths}</p>
-                                    <p id='baths'>baths</p>
+                                    <p id='baths'>{(spot?.baths > 1 ? 'baths' : 'bath')}</p>
                                 </div>
                             </div>
                             <div className="amenities-container-all">
