@@ -83,7 +83,7 @@ Technologies used within the project:
 ## Installation 
 To install CabinGo on your local machine please clone the project repository. Once the project has been cloned run ```npm install``` in your terminal to install dependencies.
 ```
- git clone https://github.com/Eric-Cortez/LodgeINN.git
+ git clone https://github.com/GoodWillHunting11/CabinGo.git
  npm install
  npm start
 ```
