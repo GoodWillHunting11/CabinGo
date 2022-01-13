@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect, useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { states } from '../utils.js'
 import { addSpot } from "../../store/spots"
 import "./spotshost.css"
@@ -105,7 +106,7 @@ function SpotsHost() {
     return (
         <div id="form-container">
             <h1>Host Form</h1>
-            <div id="host-form" >
+            <div id="host-forms" >
                 <ul>
                 {errorValidations?.map(error => (
                     <li key={error}>{error}</li>
@@ -279,9 +280,9 @@ function SpotsHost() {
                         />
                     </label>
                     <button className="host-form" disabled={errorValidations?.length > 0} type="submit">Create new Spot</button>
-                    <a href="/">
+                    <Link id='cancel-host-form' href="/">
                         Cancel
-                    </a>
+                    </Link>
                 </form>
             </div>
         </div>

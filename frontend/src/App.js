@@ -3,13 +3,14 @@ import { useDispatch } from "react-redux";
 import { Route, Switch } from "react-router-dom";
 import LoginFormPage from "./components/LoginFormPage";
 import SignupFormPage from "./components/SignupFormPage";
-import Spots from './components/Spots'
-import SpotsHost from './components/SpotsHost'
-import OneSpot from './components/OneSpot'
+import Spots from './components/Spots';
+import SpotsHost from './components/SpotsHost';
+import OneSpot from './components/OneSpot';
 import * as sessionActions from "./store/session";
 import Navigation from "./components/Navigation";
-import Home from './components/Home'
+import Home from './components/Home';
 import SpotsHostEdit from "./components/SpotsHostEdit";
+import Footer from './components/Footer';
 
 function App() {
   const dispatch = useDispatch();
@@ -46,6 +47,7 @@ function App() {
           </Route>
         </Switch>
       )}
+      <Footer />
     </>
   );
 }

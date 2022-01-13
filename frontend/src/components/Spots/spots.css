@@ -4,7 +4,7 @@ html {
 
 .main-container {
     display: flex;
-    flex-direction: row-reverse;
+    /* flex-direction: row-reverse; */
 }
 
 p {
@@ -13,12 +13,18 @@ p {
 }
 
 .map{
+    margin-top: 2.5%;
     width: 40%;
+    position: fixed;
+    left: 60%;
+    border-left: 3px solid darkgray;
 }
 
 .content-container{
+    margin-top: 3.5%;
     display: flex;
     flex-direction: column;
+    /* align-items: flex-start; */
     width: 60%;
 }
 

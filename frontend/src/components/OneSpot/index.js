@@ -69,11 +69,11 @@ function OneSpot() {
                 <h3 id='cost-one-spot'>{`$${oneSpot?.costPerNight}/Night`}</h3>
             </div>
             <div className="line-one-spot"></div>
-            <h3 id='entire-home'>Entire Home</h3>
+            <h3 id='entire-home'><i class="fas fa-home"></i> Entire Home</h3>
             <h4 id='cabin-yourself'>You'll have the cabin to yourself.</h4>
-            <h3 id='self-check'>Self check-in</h3>
+            <h3 id='self-check'><i class="fas fa-key"></i> Self check-in</h3>
             <h4 id='check-yourself'>Check yourself in with the keypad.</h4>
-            <h3 id='great-location'>Great location</h3>
+            <h3 id='great-location'><i class="fas fa-map-marker-alt"></i> Great location</h3>
             <h4 id='location-rating'>95% of recent guests gave the location a 5-star rating.</h4>
             <div className="line-one-spot"></div>
             <div className="description-one-spot">

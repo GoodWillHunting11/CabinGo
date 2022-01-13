@@ -12,7 +12,7 @@ function Navigation({ isLoaded }){
   if (sessionUser) {
     sessionLinks = (
       <>
-        <NavLink to ='/spots/host'>Host a Cabin</NavLink>
+        <NavLink id='host-a-cabin-home' to ='/spots/host'>Host a Cabin</NavLink>
         <ProfileButton user={sessionUser} />
       </>
     );
@@ -29,13 +29,10 @@ function Navigation({ isLoaded }){
   return (
     <nav className='navbar'>
       <div className='left-nav'>
-        <div id='home'>
-          <NavLink exact to="/">Home</NavLink>
-        </div>
-      </div>
-      <div className='mid-nav'>
+        <NavLink exact to='/'><i id='CabinGo-Logo' class="fab fa-airbnb"><span id='cabingo-word'> Cabin Go</span></i></NavLink>
       </div>
       <div className='right-nav'>
+        <NavLink id='home-home' exact to="/">Home</NavLink>
         <div id='signup-login'>
           {isLoaded && sessionLinks}
         </div>

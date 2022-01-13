@@ -3,6 +3,11 @@
 }
 
 .login-form {
+    margin-left:30%;
     display: flex;
     flex-direction: column;
+    width:40%;
+    border: 2px black solid;
+    border-radius: 15px;
 }
+

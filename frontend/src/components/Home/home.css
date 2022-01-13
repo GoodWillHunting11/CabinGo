@@ -16,8 +16,27 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 30px;
+    margin-top: 2%;
     margin-bottom: 30px;
+}
+
+.explore-spotss {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 4%;
+    margin-bottom: 30px;
+}
+
+#not-sure {
+    font-weight: 600;
+    font-size: 45px;
+}
+
+#spots-image {
+    border-radius: 20px;
+    width: 70%;
+    margin-bottom: 4%;
 }
 
 #spots-imagee {
@@ -30,13 +49,16 @@ body {
     font-stretch: ultra-expanded;
     font-size: 30px;
     width: 180px;
-    color: purple;
+    color: rgb(204, 121, 204);
     border-radius: 25px;
-    border: 1px solid black;
+    border: 1px solid rgba(0, 0, 0, 0.6);
+    background-color: white;
 }
 
 #explore-btn:hover {
     box-shadow: 2px 2px 1px 1px rgba(0, 0, 0, 0.55);
+    background-color: rgb(204, 121, 204);
+    color: white;
 }
 
 #become-host-btn {
@@ -44,30 +66,42 @@ body {
     font-stretch: ultra-expanded;
     font-size: 30px;
     width: 270px;
-    color: purple;
+    color: rgb(97, 247, 202);
     border-radius: 25px;
-    border: 1px solid black;
+    background-color: white;
+    border: 1px solid rgba(0, 0, 0, 0.5);
 }
 
 .become-host {
     position: absolute;
-    left: 44.25%;
-    top: 167%;
+    left: 43.55%;
+    top: 160%;
 }
 
 .where-to-go {
     position: absolute;
-    top:60%;
-    left:41.7%;
-    color: purple;
+    top:55%;
+    left: 39%;
+    color: rgb(204, 121, 204);
 }
 
 #become-host-btn:hover {
     box-shadow: 2px 2px 1px 1px rgba(0, 0, 0, 0.55);
+    background-color: rgb(97, 247, 202);
+    color: white;
+}
+
+#host-cabingo {
+    position: absolute;
+    top:144%;
+    left:40.2%;
+    font-size: 45px;
+    font-weight: 600;
+    color: rgb(97, 247, 202);
 }
 
 .explore {
     position: absolute;
     left:46%;
-    top: 75%;
+    top: 70%;
 }

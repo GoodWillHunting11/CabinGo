@@ -32,6 +32,7 @@
 .spot-detail {
     display: flex;
     flex-direction: column;
+    margin-top: 3%;
 }
 
 .one-spot-title {
@@ -123,7 +124,7 @@
 
 #cabin-yourself {
     margin: 0;
-    padding-left: 23%;
+    padding-left: 24.3%;
     font-weight: 500;
     color: rgba(0,0,0, 0.5);
 }
@@ -138,7 +139,7 @@
 
 #check-yourself {
     margin: 0;
-    padding-left: 23%;
+    padding-left: 24.3%;
     font-weight: 500;
     color: rgba(0,0,0, 0.5);
 }
@@ -153,7 +154,7 @@
 
 #location-rating {
     margin: 0;
-    padding-left: 23%;
+    padding-left: 24.3%;
     font-weight: 500;
     color: rgba(0,0,0, 0.5);
     padding-bottom: 12px;
