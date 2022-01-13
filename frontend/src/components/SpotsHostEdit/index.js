@@ -4,6 +4,7 @@ import { Redirect, useHistory, useParams } from "react-router-dom";
 import { states } from '../utils.js'
 import { editSpot } from "../../store/spots"
 import { getOneSpot } from '../../store/spots'
+import './spotedit.css'
 
 function SpotsHostEdit() {
     const history = useHistory('')
@@ -355,7 +356,7 @@ function SpotsHostEdit() {
                         />
                     </label>
                     <button className="host-form" disabled={errorValidations?.length > 0} type="submit">Edit Cabin</button>
-                    <a href="/">
+                    <a id='cancel-edit-l' href="/">
                         Cancel
                     </a>
                 </form>
