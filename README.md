@@ -108,21 +108,15 @@ To use the application in a development environment use ```npm start``` in ```fr
 * Correlating the backend with the store and the frontend. There was a learning curve for how the data flowed and learning the pattern of this flow. Ultimatley it came down to using console.log to understand how each section communicated with eachother. 
 
 ## Images 
-#### Event Listener for dynamically deleting content
-![eventListener](link)
+#### Using Local Storage to Persist State
+![CabinGo localstorage](https://user-images.githubusercontent.com/30273596/149392084-185d183d-9381-432f-ba3f-7dec4953f0c7.PNG)
 
 
-#### REACT form for the home page of CabinGo aka question list
-![questionListPug](link)
+#### Rendering Certain Amenities
+![CabinGo ternary](https://user-images.githubusercontent.com/30273596/149392100-f2d1d3a6-4367-4114-9ee9-8238ad64ea42.PNG)
 
 
-#### Code snippet of the route to post a new question 
-![postNewQuestion](link)
+#### Thunks Used For Edit, Delete, and Post
+![CabinGo Thunk](https://user-images.githubusercontent.com/30273596/149392144-022ffb6b-0fd1-426c-9629-236f5c93fc47.PNG)
 
 
-#### Code snippet of the route to edit an answer
-![submitEditAnswer](link)
-
-
-#### Code snippet of the route to get a form to post a new comment
-![getNewCommentForm](link.png)
