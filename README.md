@@ -18,17 +18,16 @@ CabinGo is an application where users can post spots to host or book spots.
 
 
 
-
 #### CabinGo Home page
-![CabinGoHomePage](imgelink)
+![CabinGo HomePage](https://user-images.githubusercontent.com/30273596/149381530-8484f54b-5d89-4044-bf41-ea4c7a4c852c.PNG)
 
 
 #### Spot Details with Image and Amenities
-![SpotDetailsPage](imgelink)
+![CabinGo SpotDetails](https://user-images.githubusercontent.com/30273596/149381518-10f4b8c2-aee7-4b50-9e3c-fc7149c29dec.PNG)
 
 
 #### All Spots with Images and Amenities
-![AllSpotsPage](imgelink)
+![CabinGo AllSpots](https://user-images.githubusercontent.com/30273596/149381496-440792d3-eb4e-4674-97d3-e72252b49e2f.PNG)
 
 
 #### CabinGo Login page
