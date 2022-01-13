@@ -4,7 +4,7 @@ import { Link, Redirect } from "react-router-dom";
 import './home.css'
 
 function Home() {
-    const session = useSelector(state => state.session)
+    const sessionUser = useSelector(state => state.session.user)
     return (
         <div className="home-container">
             <div className="explore-spots">
@@ -19,12 +19,13 @@ function Home() {
                     <button id='explore-btn'>Explore</button>
                 </a>
             </div>
-            {}
+            {sessionUser &&
             <div className="become-host">
                 <a href='/spots/host'>
                     <button id='become-host-btn'>Become a Host</button>
                 </a>
             </div>
+            }
         </div>
     )
 }
