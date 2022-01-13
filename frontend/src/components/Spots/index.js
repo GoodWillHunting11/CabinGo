@@ -5,7 +5,6 @@ import {getAllSpots} from '../../store/spots'
 import './spots.css'
 
 
-
 function Spots() {
 const dispatch = useDispatch()
 const allSpots = useSelector(state => state.spots.list)
