@@ -37,7 +37,6 @@ function OneSpot() {
                 <h1 id='title-one-spot'>{oneSpot?.title}</h1>
             </div>
             <div className="address-div-one-spot">
-                <p id='address-one-spot'>{`${oneSpot?.address}, `}</p>
                 <p id='city-one-spot'>{`${oneSpot?.city}, `}</p>
                 <p id='state-one-spot'>{`${oneSpot?.state}, `}</p>
                 <p id='country-one-spot'>{`${oneSpot?.country}`}</p>

@@ -5,12 +5,12 @@
 }
 
 #city-one-spot {
-    padding-left: 4px;
     font-weight: 500;
 }
 
 #title-one-spot {
     margin:0;
+    padding-left: 7px;
     padding-top: 30px;
     font-weight: 500;
 }
