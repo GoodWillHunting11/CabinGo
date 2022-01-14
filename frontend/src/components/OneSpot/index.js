@@ -85,16 +85,16 @@ function OneSpot() {
             </div>
             <div className="all-amenities-one">
                 <div className="left-amenities">
-                    <p>{(oneSpot?.Amenities[0]?.fireplace) ? 'Fireplace' : ''}</p>
-                    <p>{(oneSpot?.Amenities[0]?.hotTub) ? 'Hot Tub' : ''}</p>
-                    <p>{(oneSpot?.Amenities[0]?.kitchen) ? 'Kitchen' : ''}</p>
-                    <p>{(oneSpot?.Amenities[0]?.parking) ? 'Parking' : ''}</p>
+                    <p>{(oneSpot?.Amenities[0]?.fireplace) ? <p><i class="fas fa-fire"></i> Fire Place</p> : ''}</p>
+                    <p>{(oneSpot?.Amenities[0]?.hotTub) ? <p><i class="fas fa-hot-tub"></i> Hot Tub</p> : ''}</p>
+                    <p>{(oneSpot?.Amenities[0]?.kitchen) ? <p><i class="fas fa-utensils"></i> Kitchen</p> : ''}</p>
+                    <p>{(oneSpot?.Amenities[0]?.parking) ? <p><i class="fas fa-car"></i> Parking</p> : ''}</p>
                 </div>
                 <div className="right-amenities">
-                    <p>{(oneSpot?.Amenities[0]?.pets) ? 'Pets' : ''}</p>
-                    <p>{(oneSpot?.Amenities[0]?.BBQgrill) ? 'BBQ Grill' : ''}</p>
-                    <p>{(oneSpot?.Amenities[0]?.boardGames) ? 'Board Games' : ''}</p>
-                    <p>{(oneSpot?.Amenities[0]?.wifi) ? 'Wifi' : ''}</p>
+                    <p>{(oneSpot?.Amenities[0]?.pets) ? <p><i class="fas fa-dog"></i> Pets</p> : ''}</p>
+                    <p>{(oneSpot?.Amenities[0]?.BBQgrill) ? <p><i class="fas fa-hamburger"></i> BBQ Grill</p> : ''}</p>
+                    <p>{(oneSpot?.Amenities[0]?.boardGames) ? <p><i class="fas fa-chess-knight"></i> Board Games</p> : ''}</p>
+                    <p>{(oneSpot?.Amenities[0]?.wifi) ? <p><i class="fas fa-wifi"></i> Wifi</p> : ''}</p>
                 </div>
             </div>
         </div>
