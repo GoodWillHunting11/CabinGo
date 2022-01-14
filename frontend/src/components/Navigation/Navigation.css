@@ -19,6 +19,13 @@ a {
     font-weight: 600;
 }
 
+#demo-btn-l {
+    border-radius: 10px;
+    border: 1px solid rgba(10,10,10,0.3);
+    font-weight: 500;
+    font-size: 13px;
+}
+
 #root {
     background-color: white;
 }
