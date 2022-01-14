@@ -84,9 +84,6 @@ router.post('/host',
     spotHostForm,
     asyncHandler(async (req, res) => {
        const { image, spots, amenities } = req.body
-       console.log('images', image)
-       console.log('spots', spots)
-       console.log('amenities', amenities)
        const id = await Spot.create(spots)
        const newImageUrl = {
            spotId: id.id,
@@ -117,7 +114,6 @@ router.post('/host',
    requireAuth,
    spotHostForm,
    asyncHandler(async (req, res) => {
-       console.log("here")
        const spotId = parseInt(req.params.id, 10);
        const currSpot = await Spot.findByPk(spotId);
 
@@ -154,7 +150,6 @@ router.post('/host',
    //DELETE ROUTE
 
    router.delete('/:id', asyncHandler(async (req, res) => {
-    console.log("DELETE ROUTE","HIIIIII");
     const { id, Images, Amenities } = req.body
     const spotId = parseInt(req.params.id, 10);
     const imageId = Images[0].id;
@@ -163,10 +158,6 @@ router.post('/host',
     const currSpot = await Spot.findByPk(spotId);
     const currImage = await Image.findByPk(imageId);
     const currAmenity = await Amenity.findByPk(amenitiesId);
-
-    console.log("DELETE BODY SPOT ====>", currSpot)
-    console.log("DELETE BODY Image ===>", currImage)
-    console.log("DELETE BODY Amenities ===> ", currAmenity)
 
 
     if (currSpot && currImage && currAmenity) {

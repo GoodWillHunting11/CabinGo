@@ -5,6 +5,7 @@ import { states } from '../utils.js'
 import { editSpot } from "../../store/spots"
 import { getOneSpot } from '../../store/spots'
 import './spotedit.css'
+import { Link } from "react-router-dom";
 
 function SpotsHostEdit() {
     const history = useHistory('')
@@ -356,9 +357,9 @@ function SpotsHostEdit() {
                         />
                     </label>
                     <button className="host-form" disabled={errorValidations?.length > 0} type="submit">Edit Cabin</button>
-                    <a id='cancel-edit-l' href="/">
+                    <Link id='cancel-edit-l' exact to="/spots">
                         Cancel
-                    </a>
+                    </Link>
                 </form>
             </div>
 

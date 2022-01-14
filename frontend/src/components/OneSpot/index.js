@@ -22,7 +22,6 @@ function OneSpot() {
         let deleteSpotRes;
         try {
             deleteSpotRes = await dispatch(deleteSpot(oneSpot,spotId));
-            console.log(deleteSpotRes)
         } catch (error) {
             throw new Error("Error - Resource not found")
         }

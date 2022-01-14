@@ -13,7 +13,6 @@ useEffect(() => {
     dispatch(getAllSpots())
 },[])
 
-console.log('all spots',allSpots)
     return (
         <div className="main-container">
             <div className="map">
