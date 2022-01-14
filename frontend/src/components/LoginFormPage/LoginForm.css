@@ -9,6 +9,8 @@
     width:40%;
     border: 2px black solid;
     border-radius: 15px;
+    z-index: 20;
+    background-color: rgba(255,255,255);
 }
 
 .login-container-l {
@@ -16,6 +18,7 @@
     flex-direction: column;
     justify-content: center;
     padding-top: 10%;
+    z-index: 10;
 }
 
 #ln-submit {
@@ -26,4 +29,19 @@
 
 #one-step-l {
     padding-right: 19%;
+    z-index: 22;
+    font-weight: 500;
+    color: black;
+    font-style:oblique;
+}
+
+#log-back-img {
+    position: absolute;
+    z-index: 1;
+    height: 100%;
+    width: 100%;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
 }

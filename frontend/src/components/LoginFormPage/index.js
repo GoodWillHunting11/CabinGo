@@ -27,6 +27,7 @@ function LoginFormPage() {
 
   return (
     <div className='login-container-l'>
+      <img id='log-back-img' src='https://images.unsplash.com/photo-1519334684146-245b81e04575?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1497&q=80' />
       <h1 id='one-step-l'>Your destination awaits...</h1>
       <form className='login-form' onSubmit={handleSubmit}>
         <ul>

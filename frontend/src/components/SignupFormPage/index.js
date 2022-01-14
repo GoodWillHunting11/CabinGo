@@ -30,6 +30,7 @@ function SignupFormPage() {
 
   return (
     <div className="login-container-l">
+      <img id='log-back-img' src='https://images.unsplash.com/photo-1418065460487-3e41a6c84dc5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80' />
       <h1 id='one-step-l'>Explore Cabin Go Today</h1>
       <form className="login-form" onSubmit={handleSubmit}>
         <ul>
