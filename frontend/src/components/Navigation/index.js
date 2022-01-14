@@ -33,6 +33,7 @@ function Navigation({ isLoaded }){
       </div>
       <div className='right-nav'>
         <NavLink id='home-home' exact to="/">Home</NavLink>
+        <NavLink id='home-home' exact to='/spots'>Explore</NavLink>
         <div id='signup-login'>
           {isLoaded && sessionLinks}
         </div>
