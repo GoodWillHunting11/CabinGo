@@ -69,6 +69,12 @@ html {
     border: 1px solid rgba(10,10,10,0.6)
 }
 
+.profile-menu {
+    background-color: rgb(216, 212, 212);
+    border-radius: 10px;
+    border: 1px solid rgba(10,10,10,0.3);
+}
+
 .profile-dropdown {
     display: flex;
     gap: 15px;
