@@ -1,5 +1,5 @@
 ## CabinGo
-## Table of Contents 
+## Table of Contents
 
 1. [General Info](#general-info)
 2. [Wiki-Documentation](#wiki-documentation)
@@ -10,16 +10,16 @@
 
 
 
-### General Info 
+### General Info
 ***
 # CabinGo
-CabinGo is an application where users can post spots to host or book spots. 
-* Link to live  [CabinGo](https://cabingo.herokuapp.com/) project. 
+CabinGo is an application where users can post spots to host or book spots.
+* Link to live  [CabinGo](https://cabingo.herokuapp.com/) project.
 
 
 
 #### CabinGo Home page
-![CabinGo HomePage](https://user-images.githubusercontent.com/30273596/149381530-8484f54b-5d89-4044-bf41-ea4c7a4c852c.PNG)
+![CabinGo HomePage](https://user-images.githubusercontent.com/30273596/149457758-9b84a182-42e1-4d08-9f08-0a09b11f1d5c.PNG)
 
 
 #### Spot Details with Image and Amenities
@@ -27,24 +27,24 @@ CabinGo is an application where users can post spots to host or book spots.
 
 
 #### All Spots with Images and Amenities
-![CabinGo AllSpots](https://user-images.githubusercontent.com/30273596/149381496-440792d3-eb4e-4674-97d3-e72252b49e2f.PNG)
+![CabinGo AllSpots](https://user-images.githubusercontent.com/30273596/149457768-1f6cd13e-a586-4b78-82ff-e7a9f4227974.PNG)
 
 
 #### CabinGo Login page
-![CabinGoLoginPage](imgelink)
+![CabinGoLoginPage](https://user-images.githubusercontent.com/30273596/149457777-c6b7b653-df4e-4587-a406-be0824e46746.PNG)
 
 
 #### CabinGoSign up page
-![CabinGoSignUpPage](imgelink)
+![CabinGoSignUpPage](https://user-images.githubusercontent.com/30273596/149457784-7132be64-1a4f-4018-9c45-e00f9140244e.PNG)
 
 
-## Wiki Documentation: 
+## Wiki Documentation:
 ***
 * [Home](link)
 * [Database Schema](link)
 * [MVP Feature List](link)
 
-## Technologies 
+## Technologies
 ***
 Technologies used within the project:
 * [bcryptjs](https://www.npmjs.com/package/bcrypt): Version 2.4.3
@@ -72,13 +72,13 @@ Technologies used within the project:
 * SQL
 * Heroku
 
-## Languages 
+## Languages
 ***
 * JavaScript
 * CSS
 
 
-## Installation 
+## Installation
 To install CabinGo on your local machine please clone the project repository. Once the project has been cloned run ```npm install``` in your terminal to install dependencies.
 ```
  git clone https://github.com/GoodWillHunting11/CabinGo.git
@@ -88,13 +88,13 @@ To install CabinGo on your local machine please clone the project repository. On
 ```
  Once the project has been clonde cd into the frontend and run ```npm install``` in your terminal to install the frontend dependencies.
 ```
- cd frontend 
+ cd frontend
  npm install
  npm start
 
 ```
 
-To use the application in a development environment use ```npm start``` in the frontend and the backend to start the application.. 
+To use the application in a development environment use ```npm start``` in the frontend and the backend to start the application..
 
 
 ## Collaboration
@@ -103,12 +103,12 @@ To use the application in a development environment use ```npm start``` in the f
 * Rendering Amenities: The implementation of rendering amenities displays only the amenities that return true for the spot that was created. This feature was implemented using optional chaining and a few nested ternarys.
 * Edit Spot Form: The edit spot form allows you to edit details of a certain spot only if the logged in user who created that spot is logged in. This feature was implemented using redux and local storage to keep state on a refresh.  Every detail of the spot can be updated without a rerender using react.
 
-#### Challenges:   
+#### Challenges:
 * This project did not require me to keep state on refreshes but I decided for better user experiments to implement it. For this I had to do some research into optional chaining on components that depended on state and local storage.
 * During the styling phase it was a little more difficult to style elements that were using state and learning their behaviors to flow smoothly with the normal elements.
-* Correlating the backend with the store and the frontend. There was a learning curve for how the data flowed and learning the pattern of this flow. Ultimatley it came down to using console.log to understand how each section communicated with eachother. 
+* Correlating the backend with the store and the frontend. There was a learning curve for how the data flowed and learning the pattern of this flow. Ultimatley it came down to using console.log to understand how each section communicated with eachother.
 
-## Images 
+## Images
 #### Using Local Storage to Persist State
 ![CabinGo localstorage](https://user-images.githubusercontent.com/30273596/149392084-185d183d-9381-432f-ba3f-7dec4953f0c7.PNG)
 
@@ -119,5 +119,3 @@ To use the application in a development environment use ```npm start``` in the f
 
 #### Thunks Used For Edit, Delete, and Post
 ![CabinGo Thunk](https://user-images.githubusercontent.com/30273596/149392144-022ffb6b-0fd1-426c-9629-236f5c93fc47.PNG)
-
-
