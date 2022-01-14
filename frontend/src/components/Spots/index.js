@@ -17,7 +17,7 @@ console.log('all spots',allSpots)
     return (
         <div className="main-container">
             <div className="map">
-                <img id='map-image' src='https://m.psecn.photoshelter.com/img-get/I0000J3iCILMoNNI/s/880/704/White-Mountain-Portrait-1.jpg' />
+                <img id='map-image' src='https://slack-imgs.com/?c=1&o1=ro&url=https%3A%2F%2Fr1.ilikewallpaper.net%2Fiphone-wallpapers%2Fdownload%2F78803%2FDo-not-disturb-iphone-wallpaper-ilikewallpaper_com.jpg' />
             </div>
             <div className="content-container">
                 {allSpots?.map(spot => (
