@@ -280,7 +280,7 @@ function SpotsHost() {
                         />
                     </label>
                     <button className="host-form" disabled={errorValidations?.length > 0} type="submit">Create new Spot</button>
-                    <Link id='cancel-host-form' href="/">
+                    <Link id='cancel-host-form' to="/">
                         Cancel
                     </Link>
                 </form>
