@@ -1,5 +1,5 @@
 export const states = [
-    'Select a State','Alabama','Alaska',
+    'Alabama','Alaska',
     'Arizona','Arkansas','California',
     'Colorado','Connecticut','Delaware',
     'District of Columbia',
