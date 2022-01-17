@@ -17,13 +17,14 @@ a {
     text-decoration: none;
     color: black;
     font-weight: 600;
+    /* background-color: black; */
 }
 
 #demo-btn-l {
     border-radius: 10px;
     border: 1px solid rgba(10,10,10,0.3);
     font-weight: 500;
-    font-size: 13px;
+    font-size: 12px;
 }
 
 #root {
