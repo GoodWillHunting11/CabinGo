@@ -108,7 +108,7 @@ function SpotsHostEdit() {
         setHotTub(localHotTub === 'true'? true : false)
         setPets(localPets === 'true'? true : false)
         setWifi(localWifi === 'true'? true : false)
-    }, [])
+    },[])
 
 
     const handleSubmit = async (e) => {
