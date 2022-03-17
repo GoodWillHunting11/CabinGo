@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useHistory, useParams } from "react-router-dom";
 import { getOneSpot, deleteSpot } from "../../store/spots";
+import Reviews from "../Reviews";
 import SpotMap from "../SpotMap";
 import './onespot.css'
 
@@ -9,8 +10,8 @@ import './onespot.css'
 function OneSpot() {
     const {spotId} = useParams()
     const dispatch = useDispatch()
-    const oneSpot = useSelector(state => state.spots[spotId])
-    const sessionUser = useSelector(state => state.session.user)
+    const oneSpot = useSelector(state => state?.spots[spotId])
+    const sessionUser = useSelector(state => state?.session?.user)
     const history = useHistory()
 
     useEffect(() => {
@@ -96,6 +97,9 @@ function OneSpot() {
                     <p>{(oneSpot?.Amenities[0]?.wifi) ? <p><i class="fas fa-wifi"></i> Wifi</p> : ''}</p>
                 </div>
             </div>
+            <div className="line-one-spot"></div>
+                <Reviews spotId={spotId} sessionUser={sessionUser}/>
+            <div className="line-one-spot"></div>
             <div>
                 <SpotMap oneSpot={oneSpot}/>
             </div>

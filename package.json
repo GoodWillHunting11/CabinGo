@@ -22,5 +22,8 @@
   "bugs": {
     "url": "https://github.com/GoodWillHunting11/airbnb_React_Solo_Project/issues"
   },
-  "homepage": "https://github.com/GoodWillHunting11/airbnb_React_Solo_Project#readme"
+  "homepage": "https://github.com/GoodWillHunting11/airbnb_React_Solo_Project#readme",
+  "dependencies": {
+    "react-simple-star-rating": "^4.0.5"
+  }
 }

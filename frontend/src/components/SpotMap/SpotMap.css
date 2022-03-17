@@ -3,8 +3,11 @@
 }
 
 .embed-map {
-    width: 332px;
+    width: 700px;
     border: 1px solid rgba(0,0,0,.1);
-    height: 500px;
+    height: 300px;
     border-radius: 5px;
+    margin-bottom: 5%;
+    margin-top: 1%;
+    margin-left: 22.4%;
 }

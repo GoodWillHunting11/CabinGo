@@ -83,6 +83,7 @@ export const getAllSpots = () => async (dispatch) => {
     const response = await csrfFetch('/api/spots')
     if(response.ok){
         const spots = await response.json()
+        console.log('spots ----', spots)
         dispatch(loadAll(spots))
     }
 }
