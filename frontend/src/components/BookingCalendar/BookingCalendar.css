@@ -1,0 +1,7 @@
+.book-cal-con {
+    display: flex;
+}
+
+#start-date-cal {
+    width: 70%;
+}

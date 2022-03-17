@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useHistory, useParams } from "react-router-dom";
 import { getOneSpot, deleteSpot } from "../../store/spots";
+import SpotMap from "../SpotMap";
 import './onespot.css'
 
 
@@ -14,7 +15,7 @@ function OneSpot() {
 
     useEffect(() => {
         dispatch(getOneSpot(spotId))
-    },[spotId])
+    },[spotId, dispatch])
 
 
     const deleteBtn = async (e) => {
@@ -94,6 +95,9 @@ function OneSpot() {
                     <p>{(oneSpot?.Amenities[0]?.boardGames) ? <p><i class="fas fa-chess-knight"></i> Board Games</p> : ''}</p>
                     <p>{(oneSpot?.Amenities[0]?.wifi) ? <p><i class="fas fa-wifi"></i> Wifi</p> : ''}</p>
                 </div>
+            </div>
+            <div>
+                <SpotMap oneSpot={oneSpot}/>
             </div>
         </div>
     )
