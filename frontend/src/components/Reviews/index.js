@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useHistory } from "react-router-dom";
-import { getAllReviews, newReview } from "../../store/review";
+import { getAllReviews, addReview, deleteReview } from "../../store/review";
 import { getOneSpot, deleteSpot } from "../../store/spots";
 import { Rating } from 'react-simple-star-rating'
+import './Reviews.css'
+import EditReviewModal from "../../context/EditReviewModal";
 
 
 function Reviews({spotId, sessionUser}) {
@@ -13,6 +15,7 @@ function Reviews({spotId, sessionUser}) {
     const history = useHistory()
     const [body, setBody] = useState('')
     const [rating, setRating] = useState(0)
+    console.log('reviews user???', reviews)
 
 
     useEffect(() => {
@@ -22,6 +25,15 @@ function Reviews({spotId, sessionUser}) {
 
     console.log('---->', reviews)
 
+    const handleDelete = (reviewId) => async (e) => {
+        e.preventDefault()
+        const data = await dispatch(deleteReview(reviewId));
+
+        if (data && data.message === "Delete Successful") {
+          await dispatch(getAllReviews(spotId));
+        }
+      }
+
     const handleSubmit = async (e) => {
         e.preventDefault()
 
@@ -29,14 +41,14 @@ function Reviews({spotId, sessionUser}) {
             userId: sessionUser?.id,
             spotId: +spotId,
             review: body,
-            rating,
+            rating: rating/20,
         }
 
         console.log('payloadddd', payload)
 
-        const addReview = await dispatch(newReview(payload))
+        const newReview = await dispatch(addReview(payload))
 
-        if (addReview) {
+        if (newReview) {
             dispatch(getAllReviews(spotId))
             setBody('')
             setRating(0)
@@ -45,35 +57,39 @@ function Reviews({spotId, sessionUser}) {
     }
 
     const handleRating = (e) => {
-        setRating(e / 20)
+        setRating(e)
       }
 
     return (
         <>
-            <div>
+            <div className="review-main-container">
                 {reviews && reviews?.map(review => (
-                    <div>
+                    <div className="each-review-user">
+                        <p>{review?.User?.username}</p>
+                        <Rating fillColor={'#bbaadd'} readonly='true' ratingValue={review?.rating * 20} />
                         <p>{review?.review}</p>
-                        <p>{review?.rating}</p>
+                        <button id="post-modal-del" onClick={handleDelete(review?.id)}><i className="fa fa-trash"></i></button>
+                        <EditReviewModal reviewId={review?.id} spotId={spotId}/>
                     </div>
                 ))}
                 {oneSpot?.userId !== sessionUser?.id &&
                   <>
+                    <h3>Leave a Review</h3>
+                    <div className='App'>
+                        <Rating onClick={handleRating} fillColor={'#bbaadd'} ratingValue={rating} />
+                    </div>
                     <div>
                         <input
+                        id='input-for-review'
                         type='text'
                         value={body}
                         onChange={e => setBody(e.target.value)}
-                        placeholder='Leave a Review'
                         />
                         <button
                         onClick={handleSubmit}
                         >
                             Submit
                         </button>
-                    </div>
-                    <div className='App'>
-                        <Rating onClick={handleRating} ratingValue={rating} /* Available Props */ />
                     </div>
                   </>}
             </div>

@@ -1,0 +1,19 @@
+.review-main-container {
+    /* border: 1px solid red; */
+    width: 30%;
+    margin-left: 23%;
+}
+
+.star-svg {
+    height: 22px;
+    width: 25px;
+}
+
+.each-review-user {
+    margin-bottom: 10%;
+}
+
+#input-for-review {
+    height: 40px;
+    width: 50%;
+}
