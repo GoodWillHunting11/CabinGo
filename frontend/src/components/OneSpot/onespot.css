@@ -29,6 +29,20 @@
     font-weight: 500;
 }
 
+#star-rating-ss {
+    font-size: 22px;
+    color: #bbaadd;
+}
+
+.heading-for-reviews-s {
+    margin-left: 22.7%;
+}
+
+.actual-reviews {
+    overflow-y: scroll;
+    max-height: 500px;
+}
+
 .spot-detail {
     display: flex;
     flex-direction: column;

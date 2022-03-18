@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useHistory, useParams } from "react-router-dom";
 import { getOneSpot, deleteSpot } from "../../store/spots";
+import { getAllReviews, addReview, deleteReview } from "../../store/review";
 import Reviews from "../Reviews";
 import SpotMap from "../SpotMap";
 import './onespot.css'
@@ -11,12 +12,25 @@ function OneSpot() {
     const {spotId} = useParams()
     const dispatch = useDispatch()
     const oneSpot = useSelector(state => state?.spots[spotId])
+    const reviews = useSelector(state => state?.reviews?.list)
     const sessionUser = useSelector(state => state?.session?.user)
     const history = useHistory()
 
     useEffect(() => {
         dispatch(getOneSpot(spotId))
+        dispatch(getAllReviews(spotId))
     },[spotId, dispatch])
+
+    console.log('kdkdkdkd', reviews)
+
+    function avgStars(){
+        let sum = 0
+        for(let i = 0; i < reviews?.length; i++){
+            let num = reviews[i]?.rating
+            sum += num;
+        }
+        return `${Number.parseFloat(sum / reviews?.length).toFixed(1)}`
+    }
 
 
     const deleteBtn = async (e) => {
@@ -98,6 +112,9 @@ function OneSpot() {
                 </div>
             </div>
             <div className="line-one-spot"></div>
+            <div className="heading-for-reviews-s">
+                <h2><i id='star-rating-ss' class="fas fa-star"></i> {avgStars()} • {reviews?.length} {reviews?.length === 1 ? 'Review' : 'Reviews'}</h2>
+            </div>
                 <Reviews spotId={spotId} sessionUser={sessionUser}/>
             <div className="line-one-spot"></div>
             <div>

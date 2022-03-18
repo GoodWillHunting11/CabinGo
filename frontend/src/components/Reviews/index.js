@@ -63,35 +63,39 @@ function Reviews({spotId, sessionUser}) {
     return (
         <>
             <div className="review-main-container">
-                {reviews && reviews?.map(review => (
-                    <div className="each-review-user">
-                        <p>{review?.User?.username}</p>
-                        <Rating fillColor={'#bbaadd'} readonly='true' ratingValue={review?.rating * 20} />
-                        <p>{review?.review}</p>
-                        <button id="post-modal-del" onClick={handleDelete(review?.id)}><i className="fa fa-trash"></i></button>
-                        <EditReviewModal reviewId={review?.id} spotId={spotId}/>
-                    </div>
-                ))}
-                {oneSpot?.userId !== sessionUser?.id &&
-                  <>
-                    <h3>Leave a Review</h3>
-                    <div className='App'>
-                        <Rating onClick={handleRating} fillColor={'#bbaadd'} ratingValue={rating} />
-                    </div>
-                    <div>
-                        <input
-                        id='input-for-review'
-                        type='text'
-                        value={body}
-                        onChange={e => setBody(e.target.value)}
-                        />
-                        <button
-                        onClick={handleSubmit}
-                        >
-                            Submit
-                        </button>
-                    </div>
-                  </>}
+                <div className="actual-reviews">
+                    {reviews && reviews?.map(review => (
+                        <div className="each-review-user">
+                            <p>{review?.User?.username}</p>
+                            <Rating fillColor={'#bbaadd'} readonly='true' ratingValue={review?.rating * 20} />
+                            <p>{review?.review}</p>
+                            <button id="post-modal-del" onClick={handleDelete(review?.id)}><i className="fa fa-trash"></i></button>
+                            <EditReviewModal reviewId={review?.id} spotId={spotId}/>
+                        </div>
+                    ))}
+                </div>
+                <div className="reviews-input-ss">
+                    {oneSpot?.userId !== sessionUser?.id &&
+                    <>
+                        <h3>Leave a Review</h3>
+                        <div className='App'>
+                            <Rating onClick={handleRating} fillColor={'#bbaadd'} ratingValue={rating} />
+                        </div>
+                        <div>
+                            <input
+                            id='input-for-review'
+                            type='text'
+                            value={body}
+                            onChange={e => setBody(e.target.value)}
+                            />
+                            <button
+                            onClick={handleSubmit}
+                            >
+                                Submit
+                            </button>
+                        </div>
+                    </>}
+                </div>
             </div>
         </>
     )
