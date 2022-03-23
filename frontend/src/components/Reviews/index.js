@@ -69,11 +69,16 @@ function Reviews({spotId, sessionUser}) {
                             <p>{review?.User?.username}</p>
                             <Rating fillColor={'#bbaadd'} readonly='true' ratingValue={review?.rating * 20} />
                             <p>{review?.review}</p>
-                            <button id="post-modal-del" onClick={handleDelete(review?.id)}><i className="fa fa-trash"></i></button>
-                            <EditReviewModal reviewId={review?.id} spotId={spotId}/>
+                            {sessionUser?.id === review?.userId &&
+                            <>
+                                <button id="post-modal-del" onClick={handleDelete(review?.id)}><i className="fa fa-trash"></i></button>
+                                <EditReviewModal id='edit-btn-reviews' reviewId={review?.id} spotId={spotId}/>
+                            </>
+                            }
                         </div>
                     ))}
                 </div>
+                { sessionUser &&
                 <div className="reviews-input-ss">
                     {oneSpot?.userId !== sessionUser?.id &&
                     <>
@@ -89,13 +94,14 @@ function Reviews({spotId, sessionUser}) {
                             onChange={e => setBody(e.target.value)}
                             />
                             <button
+                            id='post-modal-dele'
                             onClick={handleSubmit}
                             >
                                 Submit
                             </button>
                         </div>
                     </>}
-                </div>
+                </div>}
             </div>
         </>
     )

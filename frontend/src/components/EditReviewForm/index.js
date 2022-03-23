@@ -73,6 +73,7 @@ const EditReviewForm = ({ reviewId, spotId, setShowModal }) => {
                 </div>
                 <div className='App'>
                     <Rating
+                        fillColor={'#bbaadd'}
                         onClick={handleRating}
                         ratingValue={rating} />
                 </div>

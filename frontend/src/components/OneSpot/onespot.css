@@ -4,6 +4,54 @@
     flex-direction: row;
 }
 
+#post-modal-del {
+    background-color: #bbaadd;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 7px;
+}
+
+#post-modal-dele {
+    background-color: #bbaadd;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 7px;
+    padding-top: 13px;
+    padding-bottom: 13px;
+}
+
+#post-modal-dele:hover {
+    background-color: rgba(187, 170, 221, 0.7);
+}
+
+#review-preview-edit {
+    background-color: #bbaadd;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 7px;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    margin-left: 5px;
+}
+
+.style-form {
+    padding: 70px;
+}
+
+.text-area {
+    resize: none;
+    padding: 5px;
+}
+
+.submit-btn-div {
+    width: 100%;
+}
+
+.submit-btn {
+    margin-top: 15px;
+    width: 100%;
+    background-color: #bbaadd;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 7px;
+}
+
 #city-one-spot {
     font-weight: 500;
 }
